@@ -1,0 +1,88 @@
+.map-container {
+    position: absolute;
+    top: 120px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 30px;
+    
+  }
+  
+  .map-frame {
+    padding: 10px;
+    background-color: darkseagreen;
+    border: 2px solid rgb(216, 210, 210);
+    height: 590px;
+    width: 100%;
+    margin-top: 660px;
+}
+  
+  #map {
+    height: 100%;
+    z-index: 0;
+
+  }
+  button{
+    color: white;
+    padding: 0;
+  }
+  button.btn:hover {
+    color: rgba(90,160,95,1);
+}
+
+
+@media only screen and (max-width:600px)  {
+  .input-item{
+    width: 330px;
+    padding: 26px;
+  }
+  
+}
+/* Custom styles for the input element */
+input[type="text"] {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 0px;
+  font-size: 16px;
+  width: 150px;
+  height: 60px;
+}
+.input-item{
+    width: 333px;
+}
+
+.btn2{
+  color: rgb(5, 3, 3);
+  padding: 15px;
+  background-color: rgb(255 255 255);
+  margin-left: 27px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: var(--ltn__heading-font);
+  padding-top: 17px;
+  padding-bottom: 12px;
+  border: 1px solid #d3cfcf;
+}
+/* Custom styles for the datalist dropdown */
+/* Note: Styling the datalist directly is not supported in all browsers. */
+/* The following style is specific to WebKit-based browsers like Chrome and Safari */
+input[type="text"]::-webkit-calendar-picker-indicator {
+  display: none; /* Hide the default dropdown arrow */
+}
+
+
+
+/* Style the options inside the datalist */
+datalist option {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+/* Style the selected option */
+datalist option:checked {
+  background-color: #007bff;
+  color: #fff;
+}
+.mb-70{
+  margin-top: 220px;
+}

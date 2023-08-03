@@ -1,0 +1,130 @@
+BREADCRUMB AREA START
+
+<div style="padding-top: 170px;">
+   
+    <div class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image mb-0" data-bs-bg="assets/img/bg/9.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ltn__breadcrumb-inner ltn__breadcrumb-inner-2 justify-content-between">
+                        <div class="section-title-area ltn__section-title-2">
+                            <h6 class="section-subtitle ltn__secondary-color">//  Welcome to our company</h6>
+                            <h1 class="section-title white-color">Localisation via Google Maps :<br> Trouvez notre centre<br> facilement ! </h1>
+                            
+                        </div>
+                        <div class="ltn__breadcrumb-list">
+                            <ul>
+                                <li><a href="index.html">Home</a></li>
+                                <li><button class="btn" (click)="getLocation()">Voir Centres </button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                                                                                      
+
+</div>
+
+
+<div class="ltn__google-map-locations-area" *ngIf="geograph" >
+    <div id="gmap" *ngIf="geograph">
+        <div *ngIf="geograph">
+          <div  *ngIf="geograph" class="map-container">
+            <div  class="map-frame" *ngIf="geograph">
+              <div *ngIf="geograph" id="map"></div>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<div class="ltn__google-map-locations-list-area mt-115 mb-70">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ltn__location-search mb-100">
+                    <div class="section-title-area ltn__section-title-2 ">
+                        <h1 class="section-title">Find your nearby location<span>.</span></h1>
+                    </div>
+                    <form  class="clearfix" >
+                        <h3>Votre Ville</h3>
+                        <div class="input-item">
+                            <form style="padding: 0px; color: floralwhite ;width: 361px;width: 422px;" [formGroup]="myForm" (submit)="onSubmit()">
+                                <label style=" margin: 10px;" for="check">Sort By Name </label>
+                                <input type="checkbox"  id="check"  class="form-check-input" formControlName="checkboxControl" style="margin-right: 16px;margin-top: 23px;" (change)="toggleCityInput()">
+                                <input  formControlName="city"  type="text" placeholder="Ville" list="dynmicUserIds" id="inputSearch" >     
+                                <datalist id="dynmicUserIds">
+                                    <option *ngFor="let city of Cities" [value]="city">{{city}}</option>
+                                 </datalist>
+                                 <button class="btn2" type="submit">Chercher</button>
+                                 
+                            </form>
+                            
+                        </div>
+                       
+                      </form>   
+                </div>
+                <div *ngIf="myForm.value.checkboxControl==false && error==true ">
+                    <p-messages [(value)]="messages" [enableService]="false"></p-messages>
+                  </div>
+            </div>
+           
+          
+            <div >
+                <div *ngIf="ville" class="row">
+                    <div *ngIf="ville" class="col-md-12">
+                        <div class="ltn__state-location">
+                            <h2 class="ltn__state-location-title">{{ville}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="ville" >
+                    <div class="col-md-4" *ngFor="let center of getCentersByCity()" >
+                        <div class="ltn__map-item"  >
+                            
+                            <h3 class="ltn__location-name" >  {{  center.name}} </h3>
+                            <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
+                            <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
+                            <div class="btn-wrapper">
+                                <a href="appointment.html" class="btn btn-transparent btn-border btn-effect-4"><i class="fas fa-location-arrow"></i> Get An Appointment</a>
+                                <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"><i class="fa fa-memo-circle-check"></i> Details Center</a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                
+                <div class="row" *ngIf="(calcul==false && !ville) "  >
+                    <div class="col-md-4" *ngFor="let center of centers" >
+                        <div class="ltn__map-item" >
+                            <h3 class="ltn__location-name" >  {{  center.name}} <div *ngIf="center.distance > 0 " style="color: rgb(163, 19, 19);" >{{center.distance}} km</div></h3>
+                            <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
+                            <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
+                            <div class="btn-wrapper">
+                                <a href="appointment.html" class="btn btn-transparent btn-border btn-effect-4"><i class="fas fa-location-arrow"></i> Get An Appointment</a>
+                                <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"><i class="fa fa-memo-circle-check"></i> Details Center</a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                
+                <div class="row" *ngIf="myForm.value.checkboxControl && calcul!==false && !ville  "  >
+                    <div class="col-md-4" *ngFor="let center of Centers1" >
+                        <div class="ltn__map-item" >
+                            <h3 class="ltn__location-name" >  {{  center.name}} <div *ngIf="center.distance > 0 " style="color: rgb(163, 19, 19);" >{{center.distance}} km</div></h3>
+                            <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
+                            <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
+                            <div class="btn-wrapper">
+                                <a href="appointment.html" class="btn btn-transparent btn-border btn-effect-4"><i class="fas fa-location-arrow"></i> Get An Appointment</a>
+                                <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"><i class="fa fa-memo-circle-check"></i> Details Center</a>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+               
+            </div>          
+        </div>
+    </div>
+</div>

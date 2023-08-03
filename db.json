@@ -1,0 +1,97 @@
+{
+  "Centres": [
+    {
+      "id": 1,
+      "name": "Azemmour",
+      "tele": "+212 6001-02030",
+      "adresse": "Route d'Azemmour, Casablanca, Morocco",
+      "ville": "Casablanca",
+      "categorie": [
+        "Camion"
+      ],
+      "distance": 0
+    },
+    {
+      "id": 2,
+      "name": "DEKRA PORTE 4",
+      "tele": "+212 661-944929",
+      "adresse": "Rue toulon porte 3, Casablanca, Morocco",
+      "ville": "Casablanca",
+      "categorie": [
+        "Voiture",
+        "Camion",
+        "Moto"
+      ]
+    },
+    {
+      "distance": 0,
+      "id": 3,
+      "name": "CVT El khalil",
+      "tele": "+212 5228-71887",
+      "adresse": "53 Bd Al Khalil, Casablanca, Morocco",
+      "ville": "Casablanca",
+      "categorie": [
+        "Camion"
+      ]
+    },
+    {
+      "distance": 0,
+      "id": 4,
+      "name": "Wifak",
+      "tele": "+212 694-351498",
+      "adresse": "Rue 41, Casablanca, Morocco",
+      "ville": "Casablanca",
+      "categorie": [
+        "Voiture"
+      ]
+    },
+    {
+      "distance": 0,
+      "id": 5,
+      "name": "Socotex Control Automobile",
+      "tele": "+212 5233-27291",
+      "adresse": "Bd de la Résistance, Mohammédia, Morocco",
+      "ville": "Mohammédia",
+      "categorie": [
+        "Voiture"
+      ]
+    },
+    {
+      "distance": 0,
+      "id": 6,
+      "name": "LNTI",
+      "tele": "+212 5233-04645",
+      "adresse": "Mohammédia, Morocco",
+      "ville": "Mohammédia",
+      "categorie": [
+        "Voiture",
+        "Camion"
+      ]
+    },
+    {
+      "distance": 0,
+      "id": 7,
+      "name": "T.NEAB",
+      "tele": "+212 5223-29577",
+      "adresse": "Ain Harrouda, Mohammédia, Morocco",
+      "ville": "Mohammédia",
+      "categorie": [
+        "Voiture",
+        "Camion",
+        "Moto"
+      ]
+    },
+    {
+    "distance": 0,
+      "id": 8,
+      "name": "CVTM",
+      "tele": "+212 676-54086",
+      "adresse": "rte Nationale 1 km 18 Mohammedia - Maroc",
+      "ville": "Mohammédia",
+      "categorie": [
+        "Voiture",
+        "Camion"
+      ]
+    }
+  ]
+}

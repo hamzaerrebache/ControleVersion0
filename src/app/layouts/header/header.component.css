@@ -1,0 +1,55 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+.select{
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        font: normal 11px/22px Arial, Sans-Serif;
+        color: black;
+        border: 1px solid #ccc;
+        padding: 30px;
+}
+.dropdown{
+   margin: 8px;
+}
+form{
+   margin: 6px;
+}
+.btn {
+        border-radius: 0;
+        display: inline-block;
+        font-size: 16px;
+        font-weight: 700;
+        font-family: var(--ltn__heading-font);
+        padding: 17px 48px;
+        text-align: center;
+        cursor: pointer;
+        -webkit-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        position: relative;
+        z-index: 1;
+        /* margin-right: 15px; */
+        margin-right: 0px;
+    }
+    
+    .dropdown-toggle {
+        white-space: nowrap;
+    }
+    .btn-secondary {
+        color: #fff;
+        background-color: rgb(7, 145, 85);
+        border-color: rgb(7, 145, 85);
+    }
+    .btn-check:focus+.btn-secondary, .btn-secondary:focus {
+        box-shadow: none;
+    }
+.Logo{
+  width: 90px;
+}
+
+.btn{
+        background-color: var(--ltn__secondary-color);
+        top: 15px;
+}
+    

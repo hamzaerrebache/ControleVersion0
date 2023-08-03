@@ -1,0 +1,123 @@
+<div class="article-content clearfix " *ngFor="let center of centersData">
+  <div class="above-entry-meta">
+    <span class="cat-links"
+      ><a
+        href="#"
+        rel="category tag"
+        >Ville {{center.ville}}</a
+      >&nbsp;</span
+    >
+  </div>
+  <header class="entry-header">
+    <h1  class="entry-title" style="color: #007D40;" > Centre {{center.name}}</h1>
+  </header>
+
+  <br />
+  <div style="
+  margin-top: -200px;
+" class="entry-content clearfix">
+    <p>
+      <img
+        class="size-full wp-image-231"
+        src="http://dekra-automotive.ma/wp-content/uploads/2016/07/centres1.jpg"
+        alt="Centre DEKRA Ahfir"
+        width="1000"
+        height="250"
+     
+        sizes="(max-width: 1000px) 100vw, 1000px"
+      />
+    </p>
+    <h3>Coordonnées</h3>
+    <div class="logoCentre">
+      
+      Centre {{center.name}}&nbsp;
+      <p></p>
+      <p>
+        <a
+          href="#"
+          target="_blank"
+          >Prenez un rendez-vous ici</a
+        >
+      </p>
+    </div>
+    <p>
+      <img
+        class="alignnone wp-image-309"
+        src="http://dekra-automotive.ma/wp-content/uploads/2016/07/adresse.png"
+        alt="adresse"
+        width="40"
+        height="34"
+      />&nbsp; {{center.adresse}}
+    </p>
+    <p>
+      <img
+        class="alignnone wp-image-287"
+        src="http://dekra-automotive.ma/wp-content/uploads/2016/07/fix.png"
+        alt="fix"
+        width="40"
+        height="34"
+      />&nbsp;&nbsp;{{center.tele}}
+    </p>
+    <p>
+      <img
+        class="alignnone wp-image-534"
+        src="http://dekra-automotive.ma/wp-content/uploads/2016/07/mail-1.png"
+        alt="mail"
+        width="40"
+        height="34"
+      />&nbsp; {{center.name.substr(0,center.name.indexOf(' '))}} @gmail.com
+    </p>
+    <h3><strong>Type de Véhicule :</strong></h3>
+   
+    
+    <ul class="typeVeh">
+        <li style=" padding: 35px;" *ngFor="let type of center.categorie">
+          <div style="display: flex; align-items: center;">
+            <i style="color:#007D40" class="fa-solid custom-icon" [ngClass]="{'fa-car': type === 'Voiture', 'fa-truck': type === 'Camion', 'fa-motorcycle': type === 'Moto'}"></i>
+            
+          </div>
+          <span class="type">{{type}}</span> 
+        </li>
+      </ul>
+    <h3><strong>Horaires d’ouvertures :</strong></h3>
+    <table class="horaire">
+      <tbody>
+        <tr>
+          <td>Lundi</td>
+          <td>De 7h00 à 16h00</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Mardi</td>
+          <td>De 7h00 à 16h00</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Mercredi</td>
+          <td>De 7h00 à 16h00</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Jeudi</td>
+          <td>De 7h00 à 16h00</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Vendredi</td>
+          <td>De 7h00 à 16h00</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Samedi</td>
+          <td>De 7h00 à 12h00</td>
+          <td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td>Dimanche</td>
+          <td>Fermé</td>
+          <td>&nbsp;</td>
+        </tr>
+      </tbody>
+    </table>   
+  </div>
+</div>
