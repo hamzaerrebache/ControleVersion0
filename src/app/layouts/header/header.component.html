@@ -102,43 +102,12 @@
                             </div>
                         </div>
                         <div class="header-search-1-form" style="    width: 990px;">
-                            <!-- <form (ngSubmit)="onSearch()">
-                                <div class="d-flex mr-auto p-2">
-                                    <div class="d-inline">
-                                        <div class="p-2  flex-grow-1">
-                                            <input type="text" name="name" [(ngModel)]="name"  list="Name"  placeholder="Nom du centre..."/>
-                                            <datalist id="Name">
-                                                <option *ngFor="let name of Name" [value]="name">{{name}}</option>
-                                            </datalist>
-                                        </div>
-                                      </div>
-                                      <div class="d-inline">
-                                        <div class="p-2  flex-grow-1">
-                                            <input type="text" name="ville" [(ngModel)]="ville"  list="Ville"  placeholder="Nom du Ville..."/>
-                                            <datalist id="Ville">
-                                                <option *ngFor="let ville of Ville" [value]="ville">{{ville}}</option>
-                                            </datalist>
-                                        </div>
-                                      </div>
-                                      <div class="d-inline">
-                                        <div class="p-2  flex-grow-1">
-                                            <input type="text" name="reseau" [(ngModel)]="nomReseau"   list="Reseau" placeholder="Nom du Reseau..."/>
-                                            <datalist id="Reseau">
-                                                <option *ngFor="let reseau of NomReseau" [value]="reseau">{{reseau}}</option>
-                                            </datalist>
-                                        </div>
-                                      </div>
-                                      <div class="p-2  flex-grow-1">
-                                       <button  type="submit" class="btn btn-primary"> rechercher </button>
-                                    </div>
-                                </div>
-                                 
-                            </form> -->
-                            <form (ngSubmit)="onSearch()">
+                          
+                            <form method="get" (ngSubmit)="onSearch()" [formGroup]="myForm">
                                 <div class="d-flex mr-auto p-2">
                                     <div class="d-inline" style="width: 250px;">
                                         <div class="p-2  flex-grow-1">
-                                            <input type="text" name="name" [(ngModel)]="name"  list="Name"  placeholder="Nom du centre..."/>
+                                            <input type="text"  formControlName="city"   list="Name"  placeholder="Nom du centre..."/>
                                             <datalist id="Name">
                                                 <option *ngFor="let name of Name" [value]="name">{{name}}</option>
                                             </datalist>
@@ -146,7 +115,7 @@
                                       </div>
                                       <div class="d-inline">
                                         <div class="p-2  flex-grow-1">
-                                            <input type="text" name="ville" [(ngModel)]="ville"  list="Ville"  placeholder="Nom du Ville..."/>
+                                            <input type="text"  formControlName="Vile"   list="Ville"  placeholder="Nom du Ville..."/>
                                             <datalist id="Ville">
                                                 <option *ngFor="let ville of Ville" [value]="ville">{{ville}}</option>
                                             </datalist>
@@ -154,15 +123,15 @@
                                       </div>
                                       <div class="d-inline">
                                         <div class="p-2  flex-grow-1">
-                                            <input type="text" name="reseau" [(ngModel)]="nomReseau"   list="Reseau" placeholder="Nom du Reseau..."/>
+                                            <input type="text"  formControlName="nReseau"  list="Reseau" placeholder="Nom du Reseau..."/>
                                             <datalist id="Reseau">
                                                 <option *ngFor="let reseau of NomReseau" [value]="reseau">{{reseau}}</option>
                                             </datalist>
                                         </div>
                                       </div>
                                       <div class="d-inline">
-                                      <div class="p-2  flex-grow-1">
-                                       <button  type="submit" class="btn" style="top: 15px;width: 158px;"> rechercher </button>
+                                      <div class="p-2  flex-grow-1"> 
+                                       <button  type="submit" class="btn" style="top: 15px; width: 158px;" > rechercher </button>
                                     </div>
                                 </div>
                                 </div>

@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,OnChanges,SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
 import { Center } from 'src/app/models/Center.model';
 import { CentresService } from 'src/app/Services/centres.service';
+import {CommonModule} from '@angular/common';
+import {FormGroup,FormBuilder} from '@angular/forms';
+import {Message} from 'primeng/api';
 
 @Component({
   selector: 'app-list-centres',
@@ -10,36 +13,51 @@ import { CentresService } from 'src/app/Services/centres.service';
 })
 export class ListCentresComponent  implements OnInit {
 
-  searchResults !: Center[]; // Replace 'any' with the actual data type returned by your API
+  searchResults !: Center[]; 
   queryValue !: string | null;
   categoryValue !: string | null;
-
-  constructor( 
+  myForm!:FormGroup;
+  CurrentUrl!:string;
+  messages: Message[]=[];
+   
+ 
+  constructor(
     private route: ActivatedRoute ,
-    private centresService:CentresService,
-    private router : Router  ) { 
-
+    private centresService:CentresService,public router: Router) { 
+      
   }
 
   ngOnInit() {
-    const queryParams = this.route.snapshot.queryParams;
-    const name = queryParams['name'] || '';
-    console.log(name);
-    const ville = queryParams['ville'] || '';
-    console.log(ville);
-    const nomReseau = queryParams['nomReseau'] || '';
-    console.log(nomReseau);
+    
+    
 
-    // Call the service to search for centers based on the query parameters
-    this.centresService.searchCenters(name, ville, nomReseau).subscribe(
-      (data: any) => {
-        this.searchResults = data; // Assuming the API response is an array of center objects
-        console.log(this.searchResults)
-      },
-      (error) => {
-        console.error('API Error:', error);
-      }
-    );
+    this.route.queryParamMap.subscribe(params => {
+      const name = params.get('name')?.toString();
+      const ville = params.get('ville')?.toString();
+      const nomReseau = params.get('nomReseau')?.toString();
+     
+      this.CurrentUrl=this.router.url;
+      
+      this.centresService.searchCenters(name || '', ville || '', nomReseau || '').subscribe(
+        (data: Center[]) => {
+          this.searchResults = data;
+          console.log(this.searchResults)
+          this.messages = [{ severity: 'error', summary: 'Error', detail: 'Y a pas des centres correspondant à votre recherche, une erreur est survenue.' }];
+        },
+        (error) => {
+          console.error('API Error:', error);
+        }
+      );
+    });
+
+
+    
+    
+   
+    
   }
-  }
+
+
+  
+}
   

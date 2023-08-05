@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Center } from '../models/Center.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,11 +12,8 @@ export class CentresService {
 
   constructor(private http: HttpClient) { }
 
-    searchCenters(name: string, ville: string, nomReseau: string): Observable<any> {
-      // Convert the input to lowercase to make the search case-insensitive
-      // const lowerCaseName = name ? name.toLowerCase() : '';
-      // const lowerCaseVille = ville ? ville.toLowerCase() : '';
-      // const lowerCaseNomReseau = nomReseau ? nomReseau.toLowerCase() : '';
+    searchCenters(name: string, ville: string, nomReseau: string): Observable<Center[]> {
+      
   
       let url = `${this.apiUrl}?`;
   
@@ -36,7 +34,7 @@ export class CentresService {
         url = url.slice(0, -1);
       }
   
-      return this.http.get<any>(url);
+      return this.http.get<Center[]>(url);
     
   }
 }

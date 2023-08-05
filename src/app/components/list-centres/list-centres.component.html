@@ -1,5 +1,5 @@
 
-<div class="ltn__google-map-locations-list-area pt-150 mb-70">
+<div class="ltn__google-map-locations-list-area pt-150 mb-70" >
     <div  class="container">
         <div class="row" >
             <div class="col-lg-12">
@@ -7,16 +7,22 @@
                     <h2 class="ltn__state-location-title">Vos centres</h2>
                 </div>
             </div>
-            <div class="col-lg-4" *ngFor="let centre of searchResults">
-                <div class="ltn__map-item">
-                    <h3 class="ltn__location-name">{{centre.name}}</h3>
-                    <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{centre.adresse}}</h5>
-                    <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{centre.tele}}</h4>
+            
+            <div class="col-lg-4" *ngFor="let center of searchResults" >
+               
+                <div class="ltn__map-item" *ngIf="CurrentUrl  !== '/List-centres?name=&ville=&nomReseau=' && searchResults.length !==8 " >
+                    <h3 class="ltn__location-name">{{center.name}}</h3>
+                    <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}</h5>
+                    <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                     <div class="btn-wrapper">
-                        <a href="appointment.html" class="btn  btn-transparent btn-border btn-effect-4"><i class="fas fa-location-arrow"></i> Details </a>
+                        <a href="appointment.html" class="btn btn-transparent btn-border btn-effect-4"><i class="fas fa-location-arrow"></i> Get An Appointment</a>
+                        <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"><i class="fa fa-memo-circle-check"></i> Details Center</a>
                     </div>
                 </div>
             </div> 
+            <div *ngIf="router.url=='/List-centres' || router.url=='/List-centres?name=&ville=&nomReseau=' || searchResults.length === 0 || searchResults.length ===8">
+                <p-messages [(value)]="messages" [enableService]="false"></p-messages>
+              </div>
         </div>
     </div>
 </div>

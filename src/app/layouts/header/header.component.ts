@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import {ActivatedRoute,Router} from '@angular/router';
+import {FormGroup,FormControl,FormBuilder} from '@angular/forms';
+
 
 
 @Component({
@@ -7,32 +9,43 @@ import {ActivatedRoute,Router} from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
-  name !: string;
-  ville !: string;
-  nomReseau !:string;
+export class HeaderComponent implements OnInit {
+ 
 
   Name:string[]=["Azemmour","DEKRA PORTE 4", "DEKRA PORTE 2","DEKRA PORTE 3","CVT El khalil","Centre wifak","CVTM","Visite T .NEAB"]
   Ville:string[]=["Casablanca","Mohammédia"]
   NomReseau:string[]=["DEKRA","VITAPS"]
 
+  myForm!:FormGroup
 
-
+  ngOnInit(): void {
+    this.myForm = this.fb.group({
+      city: '',
+      Vile: '',
+      nReseau: ''
+    });
+  }
   
   constructor(
      public router: Router,
-     public activatedRoute: ActivatedRoute, 
-     ) {}
+     public activatedRoute: ActivatedRoute, private fb:FormBuilder 
+     ) {
+      
+     }
+
+
+
+
+  
      
      onSearch() {
-      // Navigate to the list-result page with search query and category as query parameters
       this.router.navigate(['List-centres'], {
-        queryParams: { name: this.name, ville: this.ville ,nomReseau: this.nomReseau }
+        queryParams: { name: this.myForm.value.city, ville: this.myForm.value.Vile ,nomReseau: this.myForm.value.nReseau }
        
       });
-      this.name="";
-      this.ville="";
-      this.nomReseau ="";
+     
+      this.myForm.reset();
+      
     }
-
+ 
 }

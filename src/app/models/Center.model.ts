@@ -5,5 +5,6 @@ export interface Center{
     adresse:string;
     ville:string;
     categorie:string[];
-    distance:number
+    distance:number,
+    nomReseau:string
 }

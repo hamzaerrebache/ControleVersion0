@@ -9,7 +9,9 @@
       "categorie": [
         "Camion"
       ],
-      "distance": 0
+      "distance": 0,
+      "nomReseau":"DEKRA"
+      
     },
     {
       "id": 2,
@@ -21,7 +23,9 @@
         "Voiture",
         "Camion",
         "Moto"
-      ]
+      ],
+      "distance":0,
+      "nomReseau":"DEKRA"
     },
     {
       "distance": 0,
@@ -32,7 +36,8 @@
       "ville": "Casablanca",
       "categorie": [
         "Camion"
-      ]
+      ],
+      "nomReseau":"DEKRA"
     },
     {
       "distance": 0,
@@ -43,7 +48,8 @@
       "ville": "Casablanca",
       "categorie": [
         "Voiture"
-      ]
+      ],
+      "nomReseau":"DEKRA"
     },
     {
       "distance": 0,
@@ -54,7 +60,8 @@
       "ville": "Mohammédia",
       "categorie": [
         "Voiture"
-      ]
+      ],
+      "nomReseau":"DEKRA"
     },
     {
       "distance": 0,
@@ -66,7 +73,8 @@
       "categorie": [
         "Voiture",
         "Camion"
-      ]
+      ],
+      "nomReseau":"VITAPS"
     },
     {
       "distance": 0,
@@ -79,7 +87,8 @@
         "Voiture",
         "Camion",
         "Moto"
-      ]
+      ],
+      "nomReseau":"VITAPS"
     },
     {
     "distance": 0,
@@ -91,7 +100,8 @@
       "categorie": [
         "Voiture",
         "Camion"
-      ]
+      ],
+      "nomReseau":"VITAPS"
     }
   ]
 }

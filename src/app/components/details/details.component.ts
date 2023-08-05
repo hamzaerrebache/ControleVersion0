@@ -35,8 +35,8 @@ export class DetailsComponent {
       error=>{
         console.log(error)
       }
-    )
-
+    );
+ 
   }
 
 }

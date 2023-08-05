@@ -27,6 +27,8 @@ import { TabMenuModule } from 'primeng/tabmenu';
 import {Router} from '@angular/router';
 import { FeedbacksComponent } from './components/feedbacks/feedbacks.component';
 import { VideoYoutubeComponent } from './components/video-youtube/video-youtube.component';
+import {CommonModule} from '@angular/common';
+import { ListCentresComponent } from './components/list-centres/list-centres.component';
 
 
 const routes: Routes = [
@@ -58,7 +60,8 @@ const routes: Routes = [
     SearshComponent,
     DetailsComponent,
     FeedbacksComponent,
-    VideoYoutubeComponent
+    VideoYoutubeComponent,
+    ListCentresComponent
   ],
   imports: [
     BrowserModule,
@@ -72,11 +75,8 @@ const routes: Routes = [
     ButtonModule,
     ToastModule,
     TabMenuModule,
-    MessagesModule
-
-    
-    
-    
+    MessagesModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
