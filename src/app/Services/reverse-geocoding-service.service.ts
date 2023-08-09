@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class ReverseGeocodingServiceService {
-  private readonly apiKey: string = 'f79b33fe2c3e4c54ad0a42afdf2a7ae8';
+  private readonly apiKey: string = '7bb4c186cd0c40f1b564a0ffeaefcb55';
   private readonly apiUrl: string = 'https://api.opencagedata.com/geocode/v1/json';
 
   AdressFormatted!:any;
@@ -33,7 +34,7 @@ export class ReverseGeocodingServiceService {
     }
   }
   getAddress(lat:number, lng:number) {
-    const apiKey1 = 'f79b33fe2c3e4c54ad0a42afdf2a7ae8';
+    const apiKey1 = '7bb4c186cd0c40f1b564a0ffeaefcb55';
     const url = `https://api.opencagedata.com/geocode/v1/json?q=${lat}+${lng}&key=${apiKey1}`;
   
     return fetch(url)
@@ -49,6 +50,11 @@ export class ReverseGeocodingServiceService {
         console.error('Error:', error);
         return null;
       });
+  }
+
+  getLocationData(latitude: number, longitude: number): Observable<any> {
+    const url = `https://api.opencagedata.com/geocode/v1/json?key=${this.apiKey}&q=${latitude}+${longitude}`;
+    return this.http.get(url);
   }
 
 

@@ -14,19 +14,23 @@ export class CentresService {
 
     searchCenters(name: string, ville: string, nomReseau: string): Observable<Center[]> {
       
+       const lowerCaseName = name ? name.toLowerCase() : '';
+       const lowerCaseVille = ville ? ville.toLowerCase() : '';
+       const lowerCaseNomReseau = nomReseau ? nomReseau.toLowerCase() : '';
+      
   
       let url = `${this.apiUrl}?`;
   
-      if (name) {
-        url += `name=${name}&`;
+      if (lowerCaseName ) {
+        url += `name=${lowerCaseName}&`;
       }
   
-      if (ville) {
-        url += `ville=${ville}&`;
+      if (lowerCaseVille) {
+        url += `ville=${lowerCaseVille}&`;
       }
   
-      if (nomReseau) {
-        url += `nomReseau=${nomReseau}&`;
+      if (lowerCaseNomReseau) {
+        url += `nomReseau=${lowerCaseNomReseau}&`;
       }
   
       // Remove the trailing '&' if any

@@ -2,42 +2,46 @@
   "Centres": [
     {
       "id": 1,
-      "name": "Azemmour",
+      "name": "azemmour",
       "tele": "+212 6001-02030",
       "adresse": "Route d'Azemmour, Casablanca, Morocco",
-      "ville": "Casablanca",
+      "ville": "casablanca",
       "categorie": [
         "Camion"
       ],
       "distance": 0,
-      "nomReseau":"DEKRA"
+      "nomReseau":"dekra",
+      "urlLocation":"https://www.google.com/maps/place/DEKRA+LAGIRONDE+مركز+الفحص+التقني%E2%80%AD/@33.5809108,-7.8219409,11z/data=!4m10!1m2!2m1!1sDekra+à+proximité+de+Rue+Azemmour,+Casablanca!3m6!1s0xda7cd109de8497b:0x7ae4e469dcc6cfbd!8m2!3d33.5808901!4d-7.5994074!15sCi9EZWtyYSDDoCBwcm94aW1pdMOpIGRlIFJ1ZSBBemVtbW91ciwgQ2FzYWJsYW5jYZIBFmNhcl9pbnNwZWN0aW9uX3N0YXRpb27gAQA!16s%2Fg%2F11gj0t9ss5?entry=ttu"
+      
       
     },
     {
       "id": 2,
-      "name": "DEKRA PORTE 4",
+      "name": "dekra porte 4",
       "tele": "+212 661-944929",
       "adresse": "Rue toulon porte 3, Casablanca, Morocco",
-      "ville": "Casablanca",
+      "ville": "casablanca",
       "categorie": [
         "Voiture",
         "Camion",
         "Moto"
       ],
       "distance":0,
-      "nomReseau":"DEKRA"
+      "nomReseau":"dekra",
+      "urlLocation":"https://www.google.com/maps/place/Visite+technique+DEKRA+PORTE+4/@33.5974965,-7.604398,17z/data=!3m1!4b1!4m6!3m5!1s0xda7cd7abf2d23b7:0x67bcb19325b5194e!8m2!3d33.5974965!4d-7.6018231!16s%2Fg%2F11bwq97mv1?entry=ttu"
     },
     {
       "distance": 0,
       "id": 3,
-      "name": "CVT El khalil",
+      "name": "cvt el khalil",
       "tele": "+212 5228-71887",
       "adresse": "53 Bd Al Khalil, Casablanca, Morocco",
-      "ville": "Casablanca",
+      "ville": "casablanca",
       "categorie": [
         "Camion"
       ],
-      "nomReseau":"DEKRA"
+      "nomReseau":"dekra",
+      "urlLocation":"https://www.google.com/maps/place/CVT+Al+khalil/@33.5481508,-7.5933153,17z/data=!3m1!4b1!4m6!3m5!1s0xda632b8bb710d8b:0x8d01b0371d15f8f0!8m2!3d33.5481508!4d-7.5907404!16s%2Fg%2F11h2q1whpd?entry=ttu"
     },
     {
       "distance": 0,
@@ -45,63 +49,70 @@
       "name": "Wifak",
       "tele": "+212 694-351498",
       "adresse": "Rue 41, Casablanca, Morocco",
-      "ville": "Casablanca",
+      "ville": "casablanca",
       "categorie": [
         "Voiture"
       ],
-      "nomReseau":"DEKRA"
+      "nomReseau":"dekra",
+      "urlLocation":"https://www.google.com/maps/place/Rue+Al+Wifak,+Casablanca+20250/@33.5787383,-7.5365378,17z/data=!3m1!4b1!4m6!3m5!1s0xda7cca561481f0f:0x2a98312c32ef7b98!8m2!3d33.5787383!4d-7.5339629!16s%2Fg%2F1v6l8vkh?entry=ttu"
     },
     {
       "distance": 0,
       "id": 5,
-      "name": "Socotex Control Automobile",
+      "name": "socotex control automobile",
       "tele": "+212 5233-27291",
       "adresse": "Bd de la Résistance, Mohammédia, Morocco",
-      "ville": "Mohammédia",
+      "ville": "mohammedia",
       "categorie": [
         "Voiture"
       ],
-      "nomReseau":"DEKRA"
+      "nomReseau":"dekra",
+      "urlLocation":"https://www.google.com/maps/place/Socotex+Control+Automobile/@33.6826582,-7.4111396,17z/data=!3m1!4b1!4m6!3m5!1s0xda7b66903209df9:0x623791fddd3e0fda!8m2!3d33.6826582!4d-7.4085647!16s%2Fg%2F11dzdv62x8?entry=ttu",
+       "Latitude" : 33.68265817329834,
+       "Longitude" : -7.411139624866294
     },
     {
       "distance": 0,
       "id": 6,
-      "name": "LNTI",
+      "name": "lnti",
       "tele": "+212 5233-04645",
       "adresse": "Mohammédia, Morocco",
-      "ville": "Mohammédia",
+      "ville": "mohammedia",
       "categorie": [
         "Voiture",
         "Camion"
       ],
-      "nomReseau":"VITAPS"
+      "nomReseau":"vitaps",
+      "urlLocation":"https://www.google.com/maps/place/Centre+de+Visite+Technique+Automobiles+LNTI/@33.659512,-7.4116771,17z/data=!3m1!4b1!4m6!3m5!1s0xda7b56ec7fba84d:0xe4ffca7b50d58a58!8m2!3d33.659512!4d-7.4091022!16s%2Fg%2F11rpcml__j?entry=ttu"
     },
     {
       "distance": 0,
       "id": 7,
-      "name": "T.NEAB",
+      "name": "t.neab",
       "tele": "+212 5223-29577",
       "adresse": "Ain Harrouda, Mohammédia, Morocco",
-      "ville": "Mohammédia",
+      "ville": "mohammedia",
       "categorie": [
         "Voiture",
         "Camion",
         "Moto"
       ],
-      "nomReseau":"VITAPS"
+      "nomReseau":"vitaps",
+      "urlLocation":"https://www.google.com/maps/place/Visite+Technique+NEAB/@33.6338214,-7.4523394,17z/data=!3m1!4b1!4m6!3m5!1s0xda7ca6de28dd285:0xfd4a5d6f706c9ae2!8m2!3d33.6338214!4d-7.4497645!16s%2Fg%2F11d_842hls?entry=ttu"
     },
     {
     "distance": 0,
       "id": 8,
-      "name": "CVTM",
+      "name": "cvtm",
       "tele": "+212 676-54086",
       "adresse": "rte Nationale 1 km 18 Mohammedia - Maroc",
-      "ville": "Mohammédia",
+      "ville": "mohammedia",
       "categorie": [
         "Voiture",
         "Camion"
       ],
-      "nomReseau":"VITAPS"
+      "nomReseau":"vitaps",
+      "urlLocation":"https://www.google.com/maps/place/CVTMD+-+Centre+Visite+Technique+Mohammedia/@33.6175183,-7.4610224,17z/data=!3m1!4b1!4m6!3m5!1s0xda7cbf2f830df51:0xbdcf363265cd48ae!8m2!3d33.6175183!4d-7.4584475!16s%2Fg%2F11h7dfl5tc?entry=ttu"
     }
   ]
 }
