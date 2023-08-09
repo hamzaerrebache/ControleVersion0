@@ -27,7 +27,7 @@
             "styles": [
               "src/styles.css",
               "./node_modules/leaflet/dist/leaflet.css",
-              "node_modules/mdb-ui-kit/css/mdb.css"
+              "src/assets/css/mdb.css"
               
             ],
             "scripts": [

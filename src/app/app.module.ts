@@ -26,15 +26,11 @@ import { FeedbacksComponent } from './components/feedbacks/feedbacks.component';
 import { VideoYoutubeComponent } from './components/video-youtube/video-youtube.component';
 import {CommonModule} from '@angular/common';
 import { ListCentresComponent } from './components/list-centres/list-centres.component';
-<<<<<<< HEAD
 import { RatingModule } from 'primeng/rating';
 import { InformationComponent } from './components/information/information.component';
 import { SliderDetailComponent } from './components/slider-detail/slider-detail.component';
-=======
 import { PlusDetailVisitetechComponent } from './components/plus-detail-visitetech/plus-detail-visitetech.component';
 import { TarifsComponent } from './components/tarifs/tarifs.component';
-
->>>>>>> 20b64360c77220a6d2812ab52af7bee295735786
 
 
 const routes: Routes = [
@@ -68,14 +64,9 @@ const routes: Routes = [
     FeedbacksComponent,
     VideoYoutubeComponent,
     ListCentresComponent,
-<<<<<<< HEAD
     InformationComponent,
     SliderDetailComponent
    
-=======
-    PlusDetailVisitetechComponent,
-    TarifsComponent,
->>>>>>> 20b64360c77220a6d2812ab52af7bee295735786
   ],
   imports: [
     BrowserModule,

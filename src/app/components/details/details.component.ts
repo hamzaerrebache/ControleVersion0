@@ -2,15 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Center } from '../../models/Center.model';
-<<<<<<< HEAD
 import * as L from 'leaflet';
 import { ReverseGeocodingServiceService } from 'src/app/Services/reverse-geocoding-service.service';
-=======
-import { ReverseGeocodingServiceService } from 'src/app/Services/reverse-geocoding-service.service';
-import * as L from 'leaflet';
-
-
->>>>>>> 20b64360c77220a6d2812ab52af7bee295735786
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -19,7 +12,6 @@ import * as L from 'leaflet';
 
 
 export class DetailsComponent {
-<<<<<<< HEAD
   centerId!:number;
   centersData!:Center[];
   DistanceCurrentCenter!:any;
@@ -32,25 +24,6 @@ export class DetailsComponent {
 
   constructor(private http:HttpClient,private route: ActivatedRoute,private reverseGeocodingService:ReverseGeocodingServiceService) { 
    
-=======
-  centerId!: number;
-  centersData!: Center[];
-  urlLocation !:string;
-  Latitude !: number ; // Remplacez par la latitude souhaitée
-  Longitude !: number ; // Remplacez par la longitude souhaitée
-  locationData: any;
-  map!: L.Map;
-  adresse !:string;
-
-
-  constructor(
-    private http:HttpClient,
-    private route: ActivatedRoute,
-    private reverseGeocodingServiceService :ReverseGeocodingServiceService
-     ) { 
-  
-    
->>>>>>> 20b64360c77220a6d2812ab52af7bee295735786
   }
 
   ngOnInit() {
@@ -105,48 +78,24 @@ export class DetailsComponent {
       this.centerId = +params['id'];
      
     });
-<<<<<<< HEAD
     
     
   
    
-=======
->>>>>>> 20b64360c77220a6d2812ab52af7bee295735786
     this.http.get<Center[]>('http://localhost:3000/Centres', { params: { id: this.centerId.toString() } }).subscribe(
       data=>{
         this.centersData=data;
         console.log(this.centersData);
-<<<<<<< HEAD
         this.centersData.forEach(center=>{
           console.log(center.adresse)
           this.convertAddressToLatLng(center.adresse);
         })
         
-=======
-
-        const filteredCenters = this.centersData.filter(center => center.id === this.centerId);
-    
-        if (filteredCenters.length > 0) {
-          this.urlLocation = filteredCenters[0].urlLocation; // Utilisez "this" pour définir la propriété de la classe
-          console.log('urlLocation:', this.urlLocation);
-          this.Latitude = filteredCenters[0].Latitude; // Utilisez "this" pour définir la propriété de la classe
-          console.log('Latitude:', this.Latitude);
-          this.Longitude = filteredCenters[0].Longitude; 
-          this.adresse = filteredCenters[0].adresse;
-          console.log(this.adresse)// Utilisez "this" pour définir la propriété de la classe
-          console.log('Longitude:', this.Longitude);
-          
-
-        } else {
-          console.log("Aucun centre trouvé avec l'ID donné.");
-        }
->>>>>>> 20b64360c77220a6d2812ab52af7bee295735786
       },
       error=>{
         console.log(error)
       }
     );
-<<<<<<< HEAD
     
 
    
@@ -190,9 +139,6 @@ export class DetailsComponent {
       console.error('Error converting address to coordinates:', error);
      
     }
-=======
-
->>>>>>> 20b64360c77220a6d2812ab52af7bee295735786
   }
   
 
