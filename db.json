@@ -10,7 +10,8 @@
         "Camion"
       ],
       "distance": 0,
-      "nomReseau":"DEKRA"
+      "nomReseau":"DEKRA",
+      "logo":"assets/img/contact/logoCentres/lnti.png"
       
     },
     {
@@ -25,7 +26,8 @@
         "Moto"
       ],
       "distance":0,
-      "nomReseau":"DEKRA"
+      "nomReseau":"DEKRA",
+      "logo":"assets/img/contact/logoCentres/lnti.png"
     },
     {
       "distance": 0,
@@ -37,7 +39,8 @@
       "categorie": [
         "Camion"
       ],
-      "nomReseau":"DEKRA"
+      "nomReseau":"DEKRA",
+      "logo":"assets/img/contact/logoCentres/lnti.png"
     },
     {
       "distance": 0,
@@ -49,19 +52,21 @@
       "categorie": [
         "Voiture"
       ],
-      "nomReseau":"DEKRA"
+      "nomReseau":"DEKRA",
+      "logo":"assets/img/contact/logoCentres/lnti.png"
     },
     {
       "distance": 0,
       "id": 5,
-      "name": "Socotex Control Automobile",
+      "name": "Socotex Control",
       "tele": "+212 5233-27291",
       "adresse": "Bd de la Résistance, Mohammédia, Morocco",
       "ville": "Mohammédia",
       "categorie": [
         "Voiture"
       ],
-      "nomReseau":"DEKRA"
+      "nomReseau":"DEKRA",
+      "logo":"assets/img/contact/logoCentres/lnti.png"
     },
     {
       "distance": 0,
@@ -74,7 +79,8 @@
         "Voiture",
         "Camion"
       ],
-      "nomReseau":"VITAPS"
+      "nomReseau":"VITAPS",
+      "logo":"assets/img/contact/logoCentres/lnti.png"
     },
     {
       "distance": 0,
@@ -88,7 +94,8 @@
         "Camion",
         "Moto"
       ],
-      "nomReseau":"VITAPS"
+      "nomReseau":"VITAPS",
+      "logo":"assets/img/contact/logoCentres/lnti.png"
     },
     {
     "distance": 0,
@@ -101,7 +108,8 @@
         "Voiture",
         "Camion"
       ],
-      "nomReseau":"VITAPS"
+      "nomReseau":"VITAPS",
+      "logo":"assets/img/contact/logoCentres/lnti.png"
     }
   ]
 }

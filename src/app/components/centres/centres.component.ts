@@ -5,8 +5,8 @@ import {Coordinates} from '../../models/Coordinates.model';
 import * as L from 'leaflet';
 import { HttpClient } from '@angular/common/http';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-
-import { Message, MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService, ConfirmEventType } from 'primeng/api';
+import { Message } from 'primeng/api';
 
 
 
@@ -37,25 +37,25 @@ export class CentresComponent implements OnInit{
   cities: City[] = [];
   Cities: string[] = ["Casablanca","Mohammédia"];
   myForm!: FormGroup;
+  Reseaux:string[]=["DEKRA","SGS","REVITEX","SALAMA"]
   calcul:boolean=false;
   ville:string | any;
+  nomReseau:string | any;
   messages: Message[]=[];
-  error: boolean=false;
+  error!: boolean;
   isChecked:boolean=false;
 
   constructor(private http:HttpClient,private reverseGeocodingService:ReverseGeocodingServiceService,public fb: FormBuilder) {
-  
    
   }
 
 
   ngOnInit(): void {
+    
    
-    
-    
-
     this.myForm = this.fb.group({
       city: {value:'',disabled:false},
+      nomReseau:{value:'',disabled:false},
       checkboxControl: new FormControl(false)     
     });
     
@@ -63,12 +63,25 @@ export class CentresComponent implements OnInit{
     this.http.get<Center[]>('http://localhost:3000/Centres').subscribe(
     (data:Center[])=>{
       this.centers=data;
+      this.centers.sort((center1, center2) => {
+        if (center1.name < center2.name) {
+          return -1;
+        } else if (center1.name > center2.name) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
     },
     error=>{
       console.log(error);
+
     }
     );
+    
+    
     this.getLocation();
+    
     let inc=0;
     this.centers.forEach((center) => {
       if (!this.cities.some((city) => city.nameCity === center.ville)) {
@@ -77,21 +90,20 @@ export class CentresComponent implements OnInit{
       }
     });  
 
-
-   
   }
 
 
   onSubmit() {
     this.ville=this.myForm.value.city;
-      this.error=false;
+    this.nomReseau=this.myForm.value.nomReseau;
+    this.error=this.myForm.value.checkboxControl;
     if(!this.Cities.includes(this.ville)){
       this.error=true;
       this.ville=null;
       this.messages = [{ severity: 'error', summary: 'Error', detail: 'La ville n est pas correcte, essayez à nouveau.' }];
     }
 
-    if(this.myForm.value.checkboxControl){
+    if(this.error==true){
      
       this.getLocation();
       
@@ -110,22 +122,18 @@ export class CentresComponent implements OnInit{
       .slice(0, 5);
   }
   toggleCityInput(){
-    if(this.myForm.value.checkboxControl){
-      const inputElement: HTMLInputElement = document.getElementById("inputSearch") as HTMLInputElement;
-      inputElement.disabled = true;
-      this.error=false;
-
-
-    }else{
-    const inputElement: HTMLInputElement = document.getElementById("inputSearch") as HTMLInputElement;
-    inputElement.disabled = false;
-    this.error=false;
-  }
-
+  
   }
   getCentersByCity(): Center[]  {
-     return this.centers.filter((center) => center.ville == this.myForm.value.city);
+     return this.centers.filter((center) => center.ville.includes(this.ville));
   }
+  getCentersByReseau(): Center[]  {
+    return this.centers.filter((center) => center.nomReseau.includes(this.nomReseau));
+ }
+ getCentersByCityAndReseau(): Center[]  {
+  return this.centers.filter((center) => center.nomReseau.includes(this.nomReseau ) && center.ville.includes(this.ville));
+}
+
 
   private initMap(): void {
     this.map = L.map('map').setView([this.lat,this.lng],9);
@@ -162,15 +170,22 @@ export class CentresComponent implements OnInit{
   getLocation(){
     this.geograph=true;
     if (navigator.geolocation) {
+      
       navigator.geolocation.getCurrentPosition(position => {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
         this.ConvertCoordinatesToAddress(this.lat,this.lng)  
+      },
+      error=>{
+       if (error.code === 2) {
+          alert("Location information is unavailable.");
+      } else if (error.code === 3) {
+          alert("Timed out while trying to get location.");
+      }
+
       });
     }
-    else {
-      alert("Geolocation is not supported by this browser.");
-    }
+    
     this.initMap();
     this.centers.forEach(center=>{
       let latitude!:any;
@@ -192,11 +207,24 @@ export class CentresComponent implements OnInit{
             ville:center.adresse,
             categorie:center.categorie,
             distance:jsonObject.distance});  
+           
         }
       });   
-      console.log(this.Centers1.sort((a,b)=>{
-        return a.distance - b.distance;
-      }));
+      this.Centers1.sort((a, b) => {
+        if (a.distance !== b.distance) {
+          return a.distance - b.distance;
+        } else {
+          // Si les distances sont égales, trier par nom de centre en ordre alphabétique
+          if (a.name < b.name) {
+            return -1;
+          } else if (a.name > b.name) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      });
+      
       this.calcul=true;
   }
 
@@ -207,6 +235,7 @@ export class CentresComponent implements OnInit{
     this.distance=distanceInKm;  
     return this.distance;
 }
+
 
 
   ConvertCoordinatesToAddress(latitude: number, longitude: number) {
@@ -234,5 +263,7 @@ export class CentresComponent implements OnInit{
       return null;
     }
   }
+
+  
 
 }

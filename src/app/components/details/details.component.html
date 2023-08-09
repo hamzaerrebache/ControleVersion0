@@ -1,75 +1,46 @@
 <div class="article-content clearfix " *ngFor="let center of centersData">
-  <div class="above-entry-meta">
-    <span class="cat-links"
-      ><a
-        href="#"
-        rel="category tag"
-        >Ville {{center.ville}}</a
-      >&nbsp;</span
-    >
+  <div class="entry-container">
+    <header class="entry-header">
+      <h1 class="entry-title">Centre {{center.name}}</h1>
+    </header>
+    <div class="above-entry-meta">
+      <span class="cat-links" style="font-family: 'Rajdhani';
+      color: beige;">Ville {{center.ville}}</span>
+    </div>
   </div>
-  <header class="entry-header">
-    <h1  class="entry-title" style="color: #007D40;" > Centre {{center.name}}</h1>
-  </header>
+  
 
   <br />
   <div style="
   margin-top: -200px;
 " class="entry-content clearfix">
     <p>
-      <img
-        class="size-full wp-image-231"
-        src="http://dekra-automotive.ma/wp-content/uploads/2016/07/centres1.jpg"
-        alt="Centre DEKRA Ahfir"
-        width="1000"
-        height="250"
-     
-        sizes="(max-width: 1000px) 100vw, 1000px"
-      />
+      <app-slider-detail></app-slider-detail>
     </p>
-    <h3>Coordonnées</h3>
-    <div class="logoCentre">
-      
-      Centre {{center.name}}&nbsp;
-      <p></p>
-      <p>
-        <a
-          href="#"
-          target="_blank"
-          >Prenez un rendez-vous ici</a>
-      </p>
-    </div>
-    <p>
-      <img
-        class="alignnone wp-image-309"
-        src="http://dekra-automotive.ma/wp-content/uploads/2016/07/adresse.png"
-        alt="adresse"
-        width="40"
-        height="34"
-      />&nbsp; {{center.adresse}}
-    </p>
-    <p>
-      <img
-        class="alignnone wp-image-287"
-        src="http://dekra-automotive.ma/wp-content/uploads/2016/07/fix.png"
-        alt="fix"
-        width="40"
-        height="34"
-      />&nbsp;&nbsp;{{center.tele}}
-    </p>
-    <p>
-      <img
-        class="alignnone wp-image-534"
-        src="http://dekra-automotive.ma/wp-content/uploads/2016/07/mail-1.png"
-        alt="mail"
-        width="40"
-        height="34"
-      />&nbsp; {{center.name.substr(0,center.name.indexOf(' '))}} @gmail.com
-    </p>
-    <h3><strong>Type de Véhicule :</strong></h3>
+    <h3 style="font-size: 32px;
+    color: var(--bs-green);
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 20px;
+    /* display: inline-block; */
+    text-align: center;">Coordonnées</h3>
+   
+   
+    <app-information [Data]="centersData"></app-information>
+    <h3 style="font-size: 32px;
+    color: var(--bs-green);
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 20px;
+    margin-top: -100px;
+    text-align: center;">Type de Véhicule :</h3>
    
     
-    <ul class="typeVeh">
+    <ul class="typeVeh" style="    margin: 0 24% 0 26%;
+    display: inline-flex;
+    margin-bottom: 30px;;">
         <li style=" padding: 35px;" *ngFor="let type of center.categorie">
           <div style="display: flex; align-items: center;">
             <i style="color:#007D40" class="fa-solid custom-icon" [ngClass]="{'fa-car': type === 'Voiture', 'fa-truck': type === 'Camion', 'fa-motorcycle': type === 'Moto'}"></i>
@@ -78,45 +49,79 @@
           <span class="type">{{type}}</span> 
         </li>
       </ul>
-    <h3><strong>Horaires d’ouvertures :</strong></h3>
-    <table class="horaire">
-      <tbody>
-        <tr>
-          <td>Lundi</td>
-          <td>De 7h00 à 16h00</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td>Mardi</td>
-          <td>De 7h00 à 16h00</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td>Mercredi</td>
-          <td>De 7h00 à 16h00</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td>Jeudi</td>
-          <td>De 7h00 à 16h00</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td>Vendredi</td>
-          <td>De 7h00 à 16h00</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td>Samedi</td>
-          <td>De 7h00 à 12h00</td>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td>Dimanche</td>
-          <td>Fermé</td>
-          <td>&nbsp;</td>
-        </tr>
-      </tbody>
-    </table>   
+    <h3 style="font-size: 32px;
+    color: var(--bs-green);
+    text-transform: uppercase;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 20px;
+    /* display: inline-block; */
+    text-align: center;">Horaires d’ouvertures :</h3>
+    <div class="col-xl-4 col-md-5" style="    border: 2px solid;
+    padding: 10px;
+    width: 943px;
+    margin-bottom: 20px;">
+      <div class="footer-widget ltn__footer-timeline-widget ltn__footer-timeline-widget-1" style="margin-left: -31px;">
+          
+          <ul>
+              <li>Lundi <span>08:00AM - 18:30PM</span></li>
+              <li>Mardi <span>08:00AM - 18:30PM</span></li>
+              <li>Mercredi <span>08:00AM - 18:30PM</span></li>
+              <li>Jeudi <span>08:00AM - 18:30PM</span></li>
+              <li>Vendredi <span>08:00AM - 18:30PM</span></li>
+              <li>Samedi <span>08:00AM - 12:00AM</span></li>
+              <li>Dimaunche   <span ><i class="fa fa-lock" style="color: orangered; margin-left: -70px;"></i></span></li>
+          </ul>
+      </div>
   </div>
+
+    
+    <div id="map"></div>
+    <div style="margin-top: 20px;">
+      <h2 style="margin-top: 15px;font-size: 32px;
+      color: var(--bs-green);
+      text-transform: uppercase;
+      font-weight: 700;
+      position: relative;
+      padding-bottom: 20px;
+      /* display: inline-block; */
+      text-align: center;">Centres à proximité</h2>
+      <div style="margin-top: 20px;">
+        <div *ngFor="let center of Centers1" style="display: inline-block; margin-left: 6px;">
+          <div class="ltn__map-item" style="width: 304px; height: 244px; background-color: rgb(253 253 253);">
+            <div class="container">
+              <div class="info">
+                <h3 class="ltn__location-name" style="font-family: Arial, Helvetica, sans-serif; color: #007D40;
+                  border-bottom: 2px #007D40 solid; padding: 5px 10px 5px 10px; margin-bottom: 12px; font-size: 20px;">
+                  {{ center.name }}
+                </h3>
+              </div>
+            </div>
+            <h5 class="ltn__location-single-info" style="font-size: 15px;">
+              <i class="fas fa-map-marked-alt" style="color: var(--ltn__secondary-color); background-color: transparent;
+                width: 34px; height: 40px; font-style:normal ;"></i>{{ center.adresse }}<br>
+            </h5>
+            <h4 class="ltn__location-single-info" style="font-family: Arial, Helvetica, sans-serif;
+              margin-bottom: 1px; font-size: 17px;">
+              <i class="fas fa-phone-volume" style="color: var(--ltn__secondary-color); background-color: transparent;
+                width: 34px; height: 40px;font-style:normal"></i>{{ center.tele }}
+            </h4>
+            <div class="btn-wrapper" style="width: 200px;margin-left: 20px;">
+              <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"
+                style="height: 73px; margin: 6px; margin-left: 60px; padding: 17px; margin-top: 1px;">
+                <i class="fa fa-memo-circle-check" style="font-style: normal;"></i> Details Center
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <a href="javascript:history.back()" class="l"><button  style="margin-top: 8px;"><i class="fas fa-chevron-left"></i>Retour </button></a>
+  </div>
+  
 </div>
+
+
+

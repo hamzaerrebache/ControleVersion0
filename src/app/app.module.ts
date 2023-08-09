@@ -24,11 +24,13 @@ import { ToastModule } from 'primeng/toast';
 import{ButtonModule} from  'primeng/button';
 import { MessagesModule } from 'primeng/messages';
 import { TabMenuModule } from 'primeng/tabmenu';
-import {Router} from '@angular/router';
 import { FeedbacksComponent } from './components/feedbacks/feedbacks.component';
 import { VideoYoutubeComponent } from './components/video-youtube/video-youtube.component';
 import {CommonModule} from '@angular/common';
 import { ListCentresComponent } from './components/list-centres/list-centres.component';
+import { RatingModule } from 'primeng/rating';
+import { InformationComponent } from './components/information/information.component';
+import { SliderDetailComponent } from './components/slider-detail/slider-detail.component';
 
 
 const routes: Routes = [
@@ -61,7 +63,10 @@ const routes: Routes = [
     DetailsComponent,
     FeedbacksComponent,
     VideoYoutubeComponent,
-    ListCentresComponent
+    ListCentresComponent,
+    InformationComponent,
+    SliderDetailComponent
+   
   ],
   imports: [
     BrowserModule,
@@ -76,7 +81,8 @@ const routes: Routes = [
     ToastModule,
     TabMenuModule,
     MessagesModule,
-    CommonModule
+    CommonModule,
+    RatingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

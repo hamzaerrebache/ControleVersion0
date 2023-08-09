@@ -1,7 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import * as L from 'leaflet';
 import { MenuItem, Message ,MessageService} from 'primeng/api';
 import { ToastModule } from 'primeng/toast';
+import { ReverseGeocodingServiceService } from 'src/app/Services/reverse-geocoding-service.service';
 
 
 
@@ -11,11 +15,16 @@ import { ToastModule } from 'primeng/toast';
   styleUrls: ['./searsh.component.css'],
 })
 export class SearshComponent implements OnInit {
-  messages: Message[] = []
+
+  constructor(private http:HttpClient,private route: ActivatedRoute,private reverseGeocodingService:ReverseGeocodingServiceService) { 
+  
+    
+  }
+
 
   ngOnInit() {
-      this.messages = [{ severity: 'error', summary: 'Error', detail: 'Message Content' }];
-  }
+
+}
 
 }
 

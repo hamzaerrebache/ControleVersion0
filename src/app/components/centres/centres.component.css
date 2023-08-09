@@ -16,6 +16,9 @@
     width: 100%;
     margin-top: 660px;
 }
+.ltn__google-map-locations-area{
+  display: none;
+}
   
   #map {
     height: 100%;
@@ -60,8 +63,17 @@ input[type="text"] {
   font-weight: 700;
   font-family: var(--ltn__heading-font);
   padding-top: 17px;
-  padding-bottom: 12px;
+  padding-bottom: 15px;
   border: 1px solid #d3cfcf;
+}
+.ltn__map-item .ltn__location-single-info i {
+  margin-right: 10px;
+  color: var(--ltn__secondary-color);
+  width: 40px;
+  background-color: transparent;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
 }
 /* Custom styles for the datalist dropdown */
 /* Note: Styling the datalist directly is not supported in all browsers. */

@@ -6,5 +6,6 @@ export interface Center{
     ville:string;
     categorie:string[];
     distance:number,
-    nomReseau:string
+    nomReseau:string,
+    logo:string
 }
