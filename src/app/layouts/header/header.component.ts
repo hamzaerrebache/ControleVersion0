@@ -12,9 +12,13 @@ import {FormGroup,FormControl,FormBuilder} from '@angular/forms';
 export class HeaderComponent implements OnInit {
  
 
-  Name:string[]=["Azemmour","DEKRA PORTE 4", "DEKRA PORTE 2","DEKRA PORTE 3","CVT El khalil","Centre wifak","CVTM","Visite T .NEAB"]
+  suggestions:string[]=["Azemmour","DEKRA PORTE 4", "DEKRA PORTE 2","DEKRA PORTE 3","CVT El khalil","Centre wifak","CVTM","Visite T .NEAB"]
   Ville:string[]=["Casablanca","Mohammédia"]
   NomReseau:string[]=["DEKRA","VITAPS"]
+  nom!:string;
+  filteredSuggestions: string[] = [];
+  searchText = '';
+  
 
   myForm!:FormGroup
 
@@ -24,6 +28,7 @@ export class HeaderComponent implements OnInit {
       Vile: '',
       nReseau: ''
     });
+ 
   }
   
   constructor(
@@ -33,7 +38,12 @@ export class HeaderComponent implements OnInit {
       
      }
 
-
+   
+     onInputChange(): void {
+       this.filteredSuggestions = this.suggestions.filter(suggestion =>
+         suggestion.toLowerCase().includes(this.searchText.toLowerCase())
+       );
+     }
 
 
   

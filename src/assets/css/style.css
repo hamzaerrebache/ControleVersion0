@@ -297,6 +297,7 @@ font-family: 'Rajdhani', sans-serif;
 /* -------------------------------------
     Typography
 ------------------------------------- */
+
 html {
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
@@ -10750,7 +10751,9 @@ input.cart-plus-minus-box {
 .ltn__service-item-2 {
   padding: 0px 45px 30px;
   margin-bottom: 50px;
-  margin-top: 35px; }
+  margin-top: 35px;
+  height: 420px;
+   }
   .ltn__service-item-2 .service-item-icon {
     font-size: 80px;
     line-height: 1;

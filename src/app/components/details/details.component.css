@@ -2855,6 +2855,30 @@ map area[title]:hover:after {
 #header-rdv-section a:hover{
 	background-color: #1c4021;
 	text-decoration:none !important;}
+   .map-container {
+      position: absolute;
+      top: 120px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 30px;
+      
+    }
+    
+    .map-frame {
+      padding: 10px;
+      background-color: darkseagreen;
+      border: 2px solid rgb(216, 210, 210);
+      height: 590px;
+      width: 100%;
+      margin-top: 660px;
+  }
+    
+    #map {
+   
+         width: 100%;
+         height: 50%;
+    }
 
 
 
