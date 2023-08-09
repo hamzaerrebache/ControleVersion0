@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './layouts/header/header.component';
 import { SliderComponent } from './components/slider/slider.component';
-import { AboutUsComponent } from './components/about-us/about-us.component';
 import { ServiceComponent } from './components/service/service.component';
 import { TeamComponent } from './components/team/team.component';
 import { FooterComponent } from './layouts/footer/footer.component';
@@ -16,7 +15,6 @@ import { ContactComponent } from './components/contact/contact.component';
 import { CardServiceComponent } from './components/card-service/card-service.component';
 import { CentresComponent } from './components/centres/centres.component';
 import { AccueilComponent } from './components/accueil/accueil.component';
-import { SearshComponent } from './components/searsh/searsh.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetailsComponent } from './components/details/details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Required for PrimeNG
@@ -28,9 +26,15 @@ import { FeedbacksComponent } from './components/feedbacks/feedbacks.component';
 import { VideoYoutubeComponent } from './components/video-youtube/video-youtube.component';
 import {CommonModule} from '@angular/common';
 import { ListCentresComponent } from './components/list-centres/list-centres.component';
+<<<<<<< HEAD
 import { RatingModule } from 'primeng/rating';
 import { InformationComponent } from './components/information/information.component';
 import { SliderDetailComponent } from './components/slider-detail/slider-detail.component';
+=======
+import { PlusDetailVisitetechComponent } from './components/plus-detail-visitetech/plus-detail-visitetech.component';
+import { TarifsComponent } from './components/tarifs/tarifs.component';
+
+>>>>>>> 20b64360c77220a6d2812ab52af7bee295735786
 
 
 const routes: Routes = [
@@ -40,7 +44,9 @@ const routes: Routes = [
   { path: 'Contact', component: ContactComponent },
   { path: 'Centre-plus-proche', component: CentrePlusProcheComponent },
   { path: 'Rendez-vous', component: ReservationComponent },
-  {path:'searsh',component:SearshComponent}
+  { path:' plus-details',component:PlusDetailVisitetechComponent},
+  { path:' Tarifs',component:TarifsComponent },
+  
 
 ];
 
@@ -49,7 +55,6 @@ const routes: Routes = [
     AppComponent,
     HeaderComponent,
     SliderComponent,
-    AboutUsComponent,
     ServiceComponent,
     TeamComponent,
     FooterComponent,
@@ -59,14 +64,18 @@ const routes: Routes = [
     CardServiceComponent,
     CentresComponent,
     AccueilComponent,
-    SearshComponent,
     DetailsComponent,
     FeedbacksComponent,
     VideoYoutubeComponent,
     ListCentresComponent,
+<<<<<<< HEAD
     InformationComponent,
     SliderDetailComponent
    
+=======
+    PlusDetailVisitetechComponent,
+    TarifsComponent,
+>>>>>>> 20b64360c77220a6d2812ab52af7bee295735786
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,7 @@
 <!-- HEADER AREA START (header-5) -->
-<header class="ltn__header-area ltn__header-5 ltn__header-transparent gradient-color-4">
+<header class="ltn__header-area ltn__header-5 ltn__header-transparent gradient-color-4" >
     <!-- ltn__header-top-area start -->
-    <div class="ltn__header-top-area">
+    <div class="ltn__header-top-area"  style="background-color:var(--white-4);">
         <div class="container">
             <div class="row">
                 <div class="col-md-7">
@@ -75,7 +75,7 @@
                                             <li><a href="service.html">Commentaires</a></li>
                                         </ul>
                                     </li>
-                                    <li class="menu-icon"><a href="/Services">Particuliers</a>
+                                    <li class="menu-icon"><a href="/Services">Controle technique</a>
                                         <ul>
                                             <li><a href="/Rendez-vous">Où trouver votre centre ?</a></li>
                                             <li><a href="/Centre-plus-proche">Votre contrôle technique</a></li>
@@ -107,10 +107,12 @@
                                 <div class="d-flex mr-auto p-2">
                                     <div class="d-inline" style="width: 250px;">
                                         <div class="p-2  flex-grow-1">
-                                            <input type="text"  formControlName="city"   list="Name"  placeholder="Nom du centre..."/>
-                                            <datalist id="Name">
-                                                <option *ngFor="let name of Name" [value]="name">{{name}}</option>
-                                            </datalist>
+                                            <input type="text"  formControlName="city"    placeholder="Nom du centre..."/>
+                                            <!-- <div class="suggestion-list">
+                                                <div *ngFor="let suggestion of filteredSuggestions" (click)="searchText =suggestion">
+                                                  {{ suggestion }}
+                                                </div>
+                                            </div> -->
                                         </div>
                                       </div>
                                       <div class="d-inline">

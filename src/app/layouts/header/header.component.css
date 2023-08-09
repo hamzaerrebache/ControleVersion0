@@ -52,4 +52,19 @@ form{
         background-color: var(--ltn__secondary-color);
         top: 15px;
 }
+.suggestion-list {
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: #fff;
+  }
+  
+  .suggestion-list > div {
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .suggestion-list > div:hover {
+    background-color: #f0f0f0;
+  }
     
