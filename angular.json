@@ -25,9 +25,9 @@
               "src/assets"
             ],
             "styles": [
+              "src/assets/css/mdb.css",
               "src/styles.css",
-              "./node_modules/leaflet/dist/leaflet.css",
-              "src/assets/css/mdb.css"
+              "./node_modules/leaflet/dist/leaflet.css"
               
             ],
             "scripts": [

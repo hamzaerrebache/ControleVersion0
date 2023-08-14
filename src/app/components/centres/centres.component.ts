@@ -35,13 +35,15 @@ export class CentresComponent implements OnInit{
   latitude!: number;
   longitude!: number;
   cities: City[] = [];
-  Cities: string[] = ["Casablanca","Mohammédia"];
+  Cities: string[] = ["casablanca","mohammedia"];
   myForm!: FormGroup;
   Reseaux:string[]=["DEKRA","SGS","REVITEX","SALAMA"]
   calcul:boolean=false;
   ville:string | any;
   nomReseau:string | any;
   messages: Message[]=[];
+  messages1: Message[]=[];
+  messages2: Message[]=[];
   error!: boolean;
   isChecked:boolean=false;
 
@@ -63,6 +65,7 @@ export class CentresComponent implements OnInit{
     this.http.get<Center[]>('http://localhost:3000/Centres').subscribe(
     (data:Center[])=>{
       this.centers=data;
+      console.log(this.centers)
       this.centers.sort((center1, center2) => {
         if (center1.name < center2.name) {
           return -1;
@@ -97,10 +100,10 @@ export class CentresComponent implements OnInit{
     this.ville=this.myForm.value.city;
     this.nomReseau=this.myForm.value.nomReseau;
     this.error=this.myForm.value.checkboxControl;
-    if(!this.Cities.includes(this.ville)){
+    if(!this.Cities.includes(this.ville) && !this.Reseaux.includes(this.nomReseau)){
       this.error=true;
       this.ville=null;
-      this.messages = [{ severity: 'error', summary: 'Error', detail: 'La ville n est pas correcte, essayez à nouveau.' }];
+      this.messages = [{ severity: 'error', summary: 'Error', detail: 'Essayez à nouveau.' }];
     }
 
     if(this.error==true){
@@ -109,6 +112,8 @@ export class CentresComponent implements OnInit{
       
 
     }
+
+    this.messages1=[{  severity: 'warn', summary: 'Waning', detail: 'Vous avez désélectionner l option de trier' }];
     
       
     }
@@ -206,7 +211,9 @@ export class CentresComponent implements OnInit{
             adresse:center.adresse,
             ville:center.adresse,
             categorie:center.categorie,
-            distance:jsonObject.distance});  
+            distance:jsonObject.distance,
+          logReseau:center.logReseau
+          });  
            
         }
       });   

@@ -7,3 +7,7 @@
     object-fit: cover;
     filter: brightness(0.6);
   }
+
+  .theme-btn-1 .btn .btn-effect-1:hover{
+    color: black;
+  }

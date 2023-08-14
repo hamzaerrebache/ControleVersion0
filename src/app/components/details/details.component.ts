@@ -20,6 +20,7 @@ export class DetailsComponent {
   longitude!:any;
   adresse!:string;
   centers!:Center[]
+  logoReseau!:string;
   Centers1:any[]=[];
 
   constructor(private http:HttpClient,private route: ActivatedRoute,private reverseGeocodingService:ReverseGeocodingServiceService) { 
@@ -85,6 +86,11 @@ export class DetailsComponent {
     this.http.get<Center[]>('http://localhost:3000/Centres', { params: { id: this.centerId.toString() } }).subscribe(
       data=>{
         this.centersData=data;
+        this.centersData.forEach(center=>{
+          
+          this.logoReseau=center.logReseau;
+          
+        })
         console.log(this.centersData);
         this.centersData.forEach(center=>{
           console.log(center.adresse)
@@ -97,8 +103,13 @@ export class DetailsComponent {
       }
     );
     
+    const imageElement = document.getElementById("imageContainer") as HTMLImageElement;
 
-   
+    const imageUrl = this.logoReseau;
+
+   imageElement.src = imageUrl;
+
+  
    
   }
 
@@ -141,5 +152,5 @@ export class DetailsComponent {
     }
   }
   
-
+ 
 }

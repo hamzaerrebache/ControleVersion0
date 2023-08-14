@@ -52,8 +52,8 @@ BREADCRUMB AREA START
                     </div>
                     <form  class="clearfix" >
                         <h3>Votre Ville</h3>
-                        <div class="input-item">
-                            <form style="padding: 0px; color: floralwhite ;width: 361px;width:630px;" [formGroup]="myForm" (submit)="onSubmit()">
+                        <div class="input-item" style="width: auto;">
+                            <form style="padding: 0px; color: floralwhite ;width: auto;" [formGroup]="myForm" (submit)="onSubmit()">
                                 <label style=" margin: 10px;" for="check">Trier par Km</label>
                                 <input type="checkbox"  id="check"  class="form-check-input" formControlName="checkboxControl" style="margin-right: 16px;margin-top: 23px;" (change)="toggleCityInput()">
                                 <input  formControlName="city"  type="text" placeholder="Ville" list="dynmicUserIds" id="inputSearch" style="    margin-right: 28px;">     
@@ -72,44 +72,48 @@ BREADCRUMB AREA START
                        
                       </form>   
                 </div>
-                <div *ngIf="myForm.value.checkboxControl==false && error==true && !nomReseau">
+                <div *ngIf="myForm.value.checkboxControl==false && error==true">
                     <p-messages [(value)]="messages" [enableService]="false"></p-messages>
                   </div>
             </div>
            
           
             <div >
-                <div *ngIf="ville && !(nomReseau && ville)" class="row">
+                <div *ngIf="ville && !(ville && nomReseau)" class="row">
                     <div *ngIf="ville" class="col-md-12">
                         <div class="ltn__state-location">
                             <h2 class="ltn__state-location-title">{{ville}}</h2>
                         </div>
                     </div>
                 </div>
-                <div class="row" *ngIf="ville && !(nomReseau && ville)" >
+                <div class="row" *ngIf="ville && !(ville && nomReseau)" >
                     <div class="col-md-4" *ngFor="let center of getCentersByCity()" >
-                        <div class="ltn__map-item"  >
+                        <div class="ltn__map-item" [style.background-image]="'url(' + center.logReseau + ')'" style="
+                        background-repeat: no-repeat;
+                        background-position: top right;
+                        background-size: 72px;" >
                             
                             <h3 class="ltn__location-name" >  {{  center.name}} </h3>
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                             <div class="btn-wrapper">
-                                <a href="appointment.html" class="btn btn-transparent btn-border btn-effect-4"><i class="fas fa-location-arrow"></i> Get An Appointment</a>
                                 <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"><i class="fa fa-memo-circle-check"></i> Details Center</a>
                             </div>
                         </div>
                     </div> 
                 </div>
                 
-                <div class="row" *ngIf="(calcul==false && !ville && !nomReseau) && myForm.value.checkboxControl!==true "  >
+                <div class="row" *ngIf="( !ville && !nomReseau) && myForm.value.checkboxControl!==true "  >
                     <div class="col-md-4" *ngFor="let center of centers" >
-                        <div class="ltn__map-item" >
+                        <div class="ltn__map-item" [style.background-image]="'url(' + center.logReseau + ')'" style="
+                        background-repeat: no-repeat;
+                        background-position: top right;
+                        background-size: 72px;" >
 
                             <h3 class="ltn__location-name" >  {{  center.name}} </h3>
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                             <div class="btn-wrapper">
-                                <a href="appointment.html" class="btn btn-transparent btn-border btn-effect-4"><i class="fas fa-location-arrow"></i> Get An Appointment</a>
                                 <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"><i class="fa fa-memo-circle-check"></i> Details Center</a>
                             </div>
                         </div>
@@ -119,12 +123,15 @@ BREADCRUMB AREA START
                 
                 <div class="row" *ngIf="myForm.value.checkboxControl && calcul!==false && !ville  "  >
                     <div class="col-md-4" *ngFor="let center of Centers1" >
-                        <div class="ltn__map-item" >
+                        <div class="ltn__map-item" [style.background-image]="'url(' + center.logReseau + ')'" style="
+                        background-repeat: no-repeat;
+                        background-position: top right;
+                        background-size: 72px;">
                             <div class="container">
                                 <div class="info">
                                     <span  [ngStyle]="{'left.px': center.distance >= 10 ? 280 : 290}" *ngIf="center.distance > 0 " style="font-size: 1rem; font-weight: bold;     left: 277px;padding: 1px;
                                         position: absolute;
-                                        color: rgb(214, 14, 14);" >{{center.distance}} Km</span>
+                                        color: rgb(214, 14, 14);margin-top: 5px;" >{{center.distance}} Km</span>
                                         <h3 class="ltn__location-name" >  {{  center.name}} </h3>
                                 </div>
 
@@ -134,29 +141,30 @@ BREADCRUMB AREA START
                             
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
-                            <div class="btn-wrapper">
-                                <a href="appointment.html" class="btn btn-transparent btn-border btn-effect-4"><i class="fas fa-location-arrow"></i> Get An Appointment</a>
+                            <div class="btn-wrapper" style="margin-left: 25%;">
                                 <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"><i class="fa fa-memo-circle-check"></i> Details Center</a>
                             </div>
                         </div>
                     </div> 
                 </div>
-                <div *ngIf="nomReseau && !(nomReseau && ville)" class="row">
-                    <div *ngIf="nomReseau" class="col-md-12">
+                <div *ngIf="nomReseau && error==false && !(nomReseau && ville)" class="row">
+                    <div *ngIf="nomReseau &&  error==false" class="col-md-12">
                         <div class="ltn__state-location">
                             <h2 class="ltn__state-location-title">{{nomReseau}}</h2>
                         </div>
                     </div>
                 </div>
-                <div class="row" *ngIf="nomReseau && !(nomReseau && ville)" >
+                <div class="row" *ngIf="nomReseau && error==true  && !(nomReseau && ville)" >
                     <div class="col-md-4" *ngFor="let center of getCentersByReseau()" >
-                        <div class="ltn__map-item"  >
+                        <div class="ltn__map-item" [style.background-image]="'url(' + center.logReseau + ')'" style="
+                        background-repeat: no-repeat;
+                        background-position: top right;
+                        background-size: 72px;" >
                             
                             <h3 class="ltn__location-name" >  {{  center.name}} </h3>
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                             <div class="btn-wrapper">
-                                <a href="appointment.html" class="btn btn-transparent btn-border btn-effect-4"><i class="fas fa-location-arrow"></i> Get An Appointment</a>
                                 <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"><i class="fa fa-memo-circle-check"></i> Details Center</a>
                             </div>
                         </div>
@@ -171,13 +179,15 @@ BREADCRUMB AREA START
                 </div>
                 <div class="row" *ngIf="nomReseau && ville && error==false" >
                     <div class="col-md-4" *ngFor="let center of getCentersByCityAndReseau()" >
-                        <div class="ltn__map-item"  >
+                        <div class="ltn__map-item" [style.background-image]="'url(' + center.logReseau + ')'" style="
+                        background-repeat: no-repeat;
+                        background-position: top right;
+                        background-size: 72px;" >
                             
                             <h3 class="ltn__location-name" >  {{  center.name}} </h3>
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                             <div class="btn-wrapper">
-                                <a href="appointment.html" class="btn btn-transparent btn-border btn-effect-4"><i class="fas fa-location-arrow"></i> Get An Appointment</a>
                                 <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"><i class="fa fa-memo-circle-check"></i> Details Center</a>
                             </div>
                         </div>

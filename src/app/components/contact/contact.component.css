@@ -1,0 +1,44 @@
+.main-heading{
+    color: #000;
+    font-family: "Share Tech",Sans-serif;
+    font-size: 40px;
+}
+.span{
+    color: #224c8d;
+    font-family:'Share Tech Mono',Sans-serif;
+    font-size: 12px;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+}
+.box-style1 {
+    margin-bottom: 10px;
+    width: 100%;
+    height: 100%;
+    background-color: #efeeee;
+    transition: background-color 0.3s ease; 
+  }
+  .box-style1:hover {
+    background-color: #ffffff; 
+    cursor: pointer;
+    box-shadow: 4px 5px 2px 1px darkgray;
+  
+  }
+.fas{
+    font-size: 40px;
+    position: absolute;
+    color: #224c8d;
+}
+.input-item.ltn__custom-icon::before{
+    color: #224c8d;
+}
+
+
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Montserrat",sans-serif;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0 0 20px;
+    color: #1b1d21
+}

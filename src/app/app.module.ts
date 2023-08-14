@@ -31,6 +31,7 @@ import { InformationComponent } from './components/information/information.compo
 import { SliderDetailComponent } from './components/slider-detail/slider-detail.component';
 import { PlusDetailVisitetechComponent } from './components/plus-detail-visitetech/plus-detail-visitetech.component';
 import { TarifsComponent } from './components/tarifs/tarifs.component';
+import { SearshComponent } from './components/searsh/searsh.component';
 
 
 const routes: Routes = [
@@ -65,7 +66,8 @@ const routes: Routes = [
     VideoYoutubeComponent,
     ListCentresComponent,
     InformationComponent,
-    SliderDetailComponent
+    SliderDetailComponent,
+    SearshComponent
    
   ],
   imports: [

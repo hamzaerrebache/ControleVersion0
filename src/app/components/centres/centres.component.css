@@ -7,6 +7,10 @@
     margin: 30px;
     
   }
+
+  .btn-wrapper{
+    margin-left: 25%;
+  }
   
   .map-frame {
     padding: 10px;
@@ -75,6 +79,7 @@ input[type="text"] {
   line-height: 40px;
   text-align: center;
 }
+
 /* Custom styles for the datalist dropdown */
 /* Note: Styling the datalist directly is not supported in all browsers. */
 /* The following style is specific to WebKit-based browsers like Chrome and Safari */

@@ -8,5 +8,6 @@ export interface Center{
     categorie:string[];
     distance:number,
     nomReseau:string,
-    logo:string
+    logo:string,
+    logReseau:string
 }

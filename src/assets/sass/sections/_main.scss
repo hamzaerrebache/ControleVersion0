@@ -4418,15 +4418,7 @@ input.cart-plus-minus-box {
         &::before {
             display: none;
         }
-        .nice-select {
-            &::before {
-                content: "\f063";
-                font-family: 'Font Awesome\ 5 Free';
-                font-weight: 900;
-                margin-right: 10px;
-                color: var(--ltn__secondary-color);
-            }
-        }
+      
         &.ltn__icon-calendar {
             .nice-select {
                 &::before {

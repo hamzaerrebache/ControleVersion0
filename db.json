@@ -11,7 +11,8 @@
       ],
       "distance": 0,
       "nomReseau":"DEKRA",
-      "logo":"assets/img/contact/logoCentres/lnti.png"
+      "logo":"assets/img/contact/logoCentres/lnti.png",
+      "logReseau":"assets/img/logoReseau/dekralo.png"
       
     },
     {
@@ -27,7 +28,8 @@
       ],
       "distance":0,
       "nomReseau":"DEKRA",
-      "logo":"assets/img/contact/logoCentres/lnti.png"
+      "logo":"assets/img/contact/logoCentres/lnti.png",
+      "logReseau":"assets/img/logoReseau/dekralo.png"
     },
     {
       "distance": 0,
@@ -39,8 +41,9 @@
       "categorie": [
         "Camion"
       ],
-      "nomReseau":"DEKRA",
-      "logo":"assets/img/contact/logoCentres/lnti.png"
+      "nomReseau":"REVITEX",
+      "logo":"assets/img/contact/logoCentres/lnti.png",
+      "logReseau":"assets/img/logoReseau/revitex.png"
     },
     {
       "distance": 0,
@@ -52,8 +55,9 @@
       "categorie": [
         "Voiture"
       ],
-      "nomReseau":"DEKRA",
-      "logo":"assets/img/contact/logoCentres/lnti.png"
+      "nomReseau":"REVITEX",
+      "logo":"assets/img/contact/logoCentres/lnti.png",
+      "logReseau":"assets/img/logoReseau/revitex.png"
     },
     {
       "distance": 0,
@@ -65,8 +69,9 @@
       "categorie": [
         "Voiture"
       ],
-      "nomReseau":"DEKRA",
-      "logo":"assets/img/contact/logoCentres/lnti.png"
+      "nomReseau":"SALAMA",
+      "logo":"assets/img/contact/logoCentres/lnti.png",
+      "logReseau":"assets/img/logoReseau/salama.png"
     },
     {
       "distance": 0,
@@ -79,8 +84,9 @@
         "Voiture",
         "Camion"
       ],
-      "nomReseau":"VITAPS",
-      "logo":"assets/img/contact/logoCentres/lnti.png"
+      "nomReseau":"SALAMA",
+      "logo":"assets/img/contact/logoCentres/lnti.png",
+      "logReseau":"assets/img/logoReseau/salama.png"
     },
     {
       "distance": 0,
@@ -94,8 +100,9 @@
         "Camion",
         "Moto"
       ],
-      "nomReseau":"VITAPS",
-      "logo":"assets/img/contact/logoCentres/lnti.png"
+      "nomReseau":"SGS",
+      "logo":"assets/img/contact/logoCentres/lnti.png",
+      "logReseau":"assets/img/logoReseau/sgs.png"
     },
     {
     "distance": 0,
@@ -108,8 +115,9 @@
         "Voiture",
         "Camion"
       ],
-      "nomReseau":"VITAPS",
-      "logo":"assets/img/contact/logoCentres/lnti.png"
+      "nomReseau":"SGS",
+      "logo":"assets/img/contact/logoCentres/lnti.png",
+      "logReseau":"assets/img/logoReseau/sgs.png"
     }
   ]
 }

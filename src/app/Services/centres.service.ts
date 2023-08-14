@@ -16,7 +16,7 @@ export class CentresService {
       
        const lowerCaseName = name ? name.toLowerCase() : '';
        const lowerCaseVille = ville ? ville.toLowerCase() : '';
-       const lowerCaseNomReseau = nomReseau ? nomReseau.toLowerCase() : '';
+       const lowerCaseNomReseau = nomReseau ? nomReseau.toUpperCase() : '';
       
   
       let url = `${this.apiUrl}?`;

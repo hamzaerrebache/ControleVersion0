@@ -10,19 +10,32 @@
             
             <div class="col-lg-4" *ngFor="let center of searchResults" >
                
-                <div class="ltn__map-item" *ngIf="CurrentUrl  !== '/List-centres?name=&ville=&nomReseau=' && searchResults.length !==8 " >
-                    <h3 class="ltn__location-name">{{center.name}}</h3>
-                    <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}</h5>
-                    <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
-                    <div class="btn-wrapper">
-                        <a href="appointment.html" class="btn btn-transparent btn-border btn-effect-4"><i class="fas fa-location-arrow"></i> Get An Appointment</a>
-                        <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"><i class="fa fa-memo-circle-check"></i> Details Center</a>
-                    </div>
+               
+                    <div class="ltn__map-item" [style.background-image]="'url(' + center.logReseau + ')'" style="
+                    background-repeat: no-repeat;
+                    background-position: top right;
+                    background-size: 72px;">
+                        <div class="container">
+                            <div class="info">
+                                <span  [ngStyle]="{'left.px': center.distance >= 10 ? 280 : 290}" *ngIf="center.distance > 0 " style="font-size: 1rem; font-weight: bold;     left: 277px;padding: 1px;
+                                    position: absolute;
+                                    color: rgb(214, 14, 14);margin-top: 5px;" >{{center.distance}} Km</span>
+                                    <h3 class="ltn__location-name" >  {{  center.name}} </h3>
+                            </div>
+
+                            
+                        </div>
+                        
+                        
+                        <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
+                        <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
+                        <div class="btn-wrapper" style="margin-left: 25%;">
+                            <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"><i class="fa fa-memo-circle-check"></i> Details Center</a>
+                        </div>
+                    
                 </div>
             </div> 
-            <div *ngIf="router.url=='/List-centres' || router.url=='/List-centres?name=&ville=&nomReseau=' || searchResults.length === 0 || searchResults.length ===8">
-                <p-messages [(value)]="messages" [enableService]="false"></p-messages>
-              </div>
+            
         </div>
     </div>
 </div>
