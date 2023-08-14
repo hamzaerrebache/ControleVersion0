@@ -1,0 +1,23 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.css";
+
+.mat-mdc-form-field {
+    margin-top: 16px;
+  }
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--mdc-filled-text-field-container-color);
+    
+}
+
+.mat-mdc-form-field {
+   
+     display: inline; 
+} 
+
+p {
+    font-family: Lato;
+  }
+  
+  .swal2-styled.swal2-cancel {
+    background:blue !important
+  }

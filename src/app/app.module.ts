@@ -9,7 +9,6 @@ import { SliderComponent } from './components/slider/slider.component';
 import { ServiceComponent } from './components/service/service.component';
 import { TeamComponent } from './components/team/team.component';
 import { FooterComponent } from './layouts/footer/footer.component';
-import { ReservationComponent } from './components/reservation/reservation.component';
 import { CentrePlusProcheComponent } from './components/centre-plus-proche/centre-plus-proche.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { CardServiceComponent } from './components/card-service/card-service.component';
@@ -32,7 +31,8 @@ import { SliderDetailComponent } from './components/slider-detail/slider-detail.
 import { PlusDetailVisitetechComponent } from './components/plus-detail-visitetech/plus-detail-visitetech.component';
 import { TarifsComponent } from './components/tarifs/tarifs.component';
 import { SearshComponent } from './components/searsh/searsh.component';
-
+import { StepperErrorsExampleComponent } from './components/stepper-errors-example/stepper-errors-example.component';
+import { RendezVousComponent } from './components/rendez-vous/rendez-vous.component';
 
 const routes: Routes = [
   { path: '', component: AccueilComponent },
@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: 'Services', component: ServiceComponent },
   { path: 'Contact', component: ContactComponent },
   { path: 'Centre-plus-proche', component: CentrePlusProcheComponent },
-  { path: 'Rendez-vous', component: ReservationComponent },
+  { path: 'Rendez-vous', component: RendezVousComponent },
   { path:' plus-details',component:PlusDetailVisitetechComponent},
   { path:' Tarifs',component:TarifsComponent },
   
@@ -55,7 +55,7 @@ const routes: Routes = [
     ServiceComponent,
     TeamComponent,
     FooterComponent,
-    ReservationComponent,
+    RendezVousComponent,
     CentrePlusProcheComponent,
     ContactComponent,
     CardServiceComponent,
@@ -67,7 +67,9 @@ const routes: Routes = [
     ListCentresComponent,
     InformationComponent,
     SliderDetailComponent,
-    SearshComponent
+    SearshComponent,
+ 
+    RendezVousComponent
    
   ],
   imports: [
@@ -77,6 +79,7 @@ const routes: Routes = [
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    StepperErrorsExampleComponent,
     BrowserModule,
     RouterModule.forChild(routes),
     ButtonModule,
