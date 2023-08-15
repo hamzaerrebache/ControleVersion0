@@ -33,6 +33,22 @@
 .input-item.ltn__custom-icon::before{
     color: var(--green);
 }
+button.bnt.theme-bnt-1 {
+    background-color: var(--ltn__secondary-color);
+    color: white;
+    transition: 1s;
+    width: 115px;
+    padding: 16px;
+    border: none;
+}
+button.bnt.theme-bnt-1:hover {
+    background-color:white ;
+    color: white;
+    transition: 1s;
+    width: 115px;
+    padding: 16px;
+    border: none;
+}
 
 
 h1,h2,h3,h4,h5,h6 {

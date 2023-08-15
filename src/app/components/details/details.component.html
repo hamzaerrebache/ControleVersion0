@@ -115,9 +115,17 @@
                 width: 34px; height: 40px;font-style:normal"></i>{{ center.tele }}
             </h4>
             <div class="btn-wrapper" style="width: 200px;margin-left: 20px;">
-              <a [href]="'/Center-details?id=' + center.id" class="btn btn-transparent btn-border btn-effect-3"
-                style="height: 73px; margin: 6px; margin-left: 60px; padding: 17px; margin-top: 1px;">
-                <i class="fa fa-memo-circle-check" style="font-style: normal;"></i> Details Center
+              <a [href]="'/Center-details?id=' + center.id" class=""
+                style="height: inherit; margin: 6px; margin-left: 60px; padding: 17px; margin-top: 1px;    text-decoration: none;
+                outline: none;
+                padding-left: 7px;
+                color: inherit;
+                padding-right: 8px;
+                background-color: var(--ltn__secondary-color-2);
+                color: white;
+                padding-top: 12px; padding-bottom: 12px;
+                ">
+                <i class="fa fa-memo-circle-check" style="font-style: normal;"></i>Détail centre
               </a>
             </div>
           </div>
@@ -143,7 +151,13 @@
                                   </div>
                                   <div class="input-item input-item-name  col-md-12"> 
                                       <div class="btn-wrapper">
-                                          <button class="btn theme-btn-1 btn-effect-1 text-uppercase" type="submit"><i class="far fa-comments"></i> Poster un commentaire</button>
+                                          <button style="background-color: var(--ltn__secondary-color-3);
+                                          height: 61px;
+                                          width: 265px;
+                                          font-family: var(--ltn__heading-font);
+                                          font-size: 19px;
+                                          font-weight: bold;
+                                      " type="submit"><i class="far fa-comments"></i> Poster un commentaire</button>
                                       </div>
                                   </div>
                                   
@@ -160,8 +174,9 @@
       margin-bottom: 13px;
       width: 100px;
       height: 47px;
-      background-color: var;
-      background-color: var(--bs-green);"><i class="fas fa-chevron-left"></i>Retour </button></a>
+      color: white;
+      background-color: 
+      var(--ltn__secondary-color)"><i class="fas fa-chevron-left"></i>Retour </button></a>
   </div>
   
 </div>
