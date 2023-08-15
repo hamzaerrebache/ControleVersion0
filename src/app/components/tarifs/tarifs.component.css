@@ -4,6 +4,9 @@ titre{
     text-align: center;
     padding-left: 130px;
   }
+  .nav a {
+    font-size: 15px;
+  }
   
   .typed {
     overflow: hidden;

@@ -9,6 +9,7 @@ import { Center } from 'src/app/models/Center.model';
 })
 export class VideoYoutubeComponent implements OnInit {
   Centres!:Center[]
+  len!:number
   constructor(private http:HttpClient) {}
 
 
@@ -22,7 +23,8 @@ export class VideoYoutubeComponent implements OnInit {
       error=>{
         console.log(error);
       }
-    )
+    );
+    this.len=this.Centres.length
   }
 
 }

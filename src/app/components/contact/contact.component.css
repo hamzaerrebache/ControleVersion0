@@ -28,10 +28,10 @@
 .fas{
     font-size: 40px;
     position: absolute;
-    color: #224c8d;
+    color: var(--green);
 }
 .input-item.ltn__custom-icon::before{
-    color: #224c8d;
+    color: var(--green);
 }
 
 

@@ -48,7 +48,7 @@
             </div>
         </div>
         <div>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperNext>Suivant</button>
         </div>
       </form>
     </mat-step>
@@ -86,7 +86,7 @@
                   <mat-error *ngIf="secondFormGroup?.get('yearCtrl')?.hasError('required')">L'année est requise.</mat-error>
                   <mat-error *ngIf="secondFormGroup?.get('yearCtrl')?.hasError('pattern')">L'année doit être au format YYYY (ex. 2023).</mat-error>
                </div>
-               <h6>What type of service do you need on your vehicle?</h6>
+               <h6>De quel type de service avez-vous besoin pour votre véhicule ?</h6>
                <div class="input-item input-item-textarea ltn__custom-icon">
                    <textarea name="ltn__message" placeholder="Enter message" matInput formControlName="textCtrl" ></textarea>
                    <mat-error *ngIf="secondFormGroup?.get('textCtrl')?.hasError('required')">La description est requise.</mat-error>
@@ -94,8 +94,8 @@
           </div>
     
         <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
+          <button mat-button matStepperPrevious>Retour</button>
+          <button mat-button matStepperNext>Suivant</button>
         </div>
       </form>
     </mat-step>
@@ -122,8 +122,8 @@
             </div>
          </div>
           <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperPrevious>Retour</button>
+            <button mat-button matStepperNext>Suivant</button>
           </div>
         </form>
       </mat-step> 
@@ -159,19 +159,19 @@
             </div>
         </div>
           <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
+            <button mat-button matStepperPrevious>Retour</button>
+            <button mat-button matStepperNext>Suivant</button>
           </div>
         </form>
       </mat-step>
 
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <p>You are now done.</p>
+      <ng-template matStepLabel>Terminer</ng-template>
+      <p>Vous avez terminé.</p>
       <div>
         <form [formGroup]="fourthFormGroup" (ngSubmit)="submitRendezVous()">
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <button mat-button matStepperPrevious>Retour</button>
+        <button mat-button (click)="stepper.reset()">Annuler</button>
         <button mat-button type="submit">Soumettre</button>
       </form>
       </div>

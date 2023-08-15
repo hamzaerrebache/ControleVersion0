@@ -12,9 +12,12 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import Swal from 'sweetalert2';
+import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
 
 import {ActivatedRoute,Router} from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
+import { Center } from 'src/app/models/Center.model';
  enum TYPE {
   ERROR='error',
   SUCCESS='success',
@@ -75,6 +78,9 @@ export class StepperErrorsExampleComponent  implements OnInit {
   thirdFormGroup !: FormGroup;
   fourthFormGroup !: FormGroup;
   stepper: any;
+  newDate!:string;
+  centerName!:string
+  centers!:Center[];
   cities: City[] | undefined;
   selectedCity !: DropdownOptions;
   dropdownOptions !:DropdownOptions[];
@@ -106,10 +112,19 @@ export class StepperErrorsExampleComponent  implements OnInit {
     private _formBuilder: FormBuilder,
     private rendezVousService: RendezVousService,
     public router: Router,
-    public activatedRoute: ActivatedRoute,
+    public activatedRoute: ActivatedRoute,private http:HttpClient
   ) {}
 
   ngOnInit() {
+    this.http.get<Center[]>('http://localhost:3000/Centres').subscribe(
+      (data) => {
+          this.centers=data
+          console.log(this.centers)
+      },
+      error=>{
+        console.log(error)
+      }
+    )
     this.dropdownOptions = [
       { label: 'Option 1', value: 'option1' },
       { label: 'Option 2', value: 'option2' },
@@ -143,10 +158,13 @@ export class StepperErrorsExampleComponent  implements OnInit {
       dateCtrl: ['', Validators.required], // Contrôle pour la date du rendez-vous
       timeCtrl: ['', Validators.required] // Contrôle pour l'heure du rendez-vous
     });
+    
+
   }
 
   // Reste du code...
   submitRendezVous() {
+ 
     
     const rendezVousData :RendezVous = {
       id: 0,
@@ -169,7 +187,61 @@ export class StepperErrorsExampleComponent  implements OnInit {
       date: this.fourthFormGroup.get('dateCtrl')?.value,
       time: this.fourthFormGroup.get('timeCtrl')?.value,
     };
-  
+    const date = new Date(rendezVousData.date);
+     this.newDate = date.toLocaleDateString("fr-FR", {
+    weekday: "short",
+    year: "numeric",
+    month: "short",
+    day: "numeric"
+});
+    const foundCenter = this.centers.find(center => center.id === rendezVousData.centre_id);
+
+    if (foundCenter) {
+       this.centerName = foundCenter.name;
+      
+    } else {
+      console.log('Centre introuvable pour cet ID.');
+    }
+
+ 
+    const messageContent = `
+    
+
+    Cher(e) ${rendezVousData.first_name} ${rendezVousData.last_name},
+    
+    Nous sommes ravis de confirmer votre prochain rendez-vous pour l'inspection de votre véhicule avec nous. Voici les détails de votre rendez-vous :
+    
+    Détails du rendez-vous :
+    - Date : ${this.newDate}
+    - Heure : ${rendezVousData.time}
+    - Centre : ${this.centerName}
+    
+    Informations sur le véhicule :
+    - Marque : ${rendezVousData.make}
+    - Modèle : ${rendezVousData.model}
+    - Année : ${rendezVousData.year}
+    - Description : ${rendezVousData.description}
+    
+    Votre rendez-vous est important pour nous, et notre équipe est prête à vous offrir une expérience fluide. Si vous avez des questions ou si vous avez besoin d'apporter des modifications à votre rendez-vous, veuillez nous contacter à contoletechnique27000@gmail.com.
+    
+    Nous avons hâte de vous servir et de garantir la sécurité de votre véhicule.
+    
+    Cordialement,
+    controletechnique.ma
+  `;
+ 
+    emailjs.send('service_nu1k82a', 'template_i6el8pk', {
+      message:messageContent,
+      From:'siliad@contact.ma',
+      To:rendezVousData.email,
+      subject:'Objet : Confirmation de votre rendez-vous pour l inspection de votre véhicule'
+    }
+    , 'PN9MwwaL0zw9s_F0V')
+      .then((result: EmailJSResponseStatus) => {
+        console.log(result.text);
+      }, (error) => {
+        console.log(error.text);
+      });
     // Appel à la méthode de service pour créer le rendez-vous
     this.rendezVousService.createRendezVous(rendezVousData).subscribe(
       response => {
@@ -184,10 +256,11 @@ export class StepperErrorsExampleComponent  implements OnInit {
       );
   
         Swal.fire({
-          title: 'Contenu du message de réussite',
-          text: "retour page d'accueil",
+          title: 'Votre rendez-vous a été effectué.',
+          text: "Retour à la page d'accueil",
           icon: TYPE.SUCCESS,
           confirmButtonText: 'OK',
+         
         }).then((result) => {
           if (result.isConfirmed) {
           

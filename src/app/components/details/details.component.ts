@@ -4,6 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Center } from '../../models/Center.model';
 import * as L from 'leaflet';
 import { ReverseGeocodingServiceService } from 'src/app/Services/reverse-geocoding-service.service';
+import { FormBuilder, FormGroup ,Validators  } from '@angular/forms';
+import { CommentaireService } from 'src/app/Services/commentaire.service';
+import { Commentaire } from 'src/app/models/Commentaie.model';
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -22,11 +26,21 @@ export class DetailsComponent {
   centers!:Center[]
   logoReseau!:string;
   Centers1:any[]=[];
+  value!: number;
+  CommentForm !: FormGroup;
 
-  constructor(private http:HttpClient,private route: ActivatedRoute,private reverseGeocodingService:ReverseGeocodingServiceService) { 
-   
-  }
-
+  constructor(
+              private http:HttpClient,
+              private route: ActivatedRoute,
+              private reverseGeocodingService:ReverseGeocodingServiceService,
+              private commentaireService: CommentaireService,
+              private fb: FormBuilder
+                 ) { 
+                  this.CommentForm = this.fb.group({
+                    rating: [null, Validators.required],
+                    description: ['', Validators.required]
+                  });
+                   }
   ngOnInit() {
     this.http.get<Center[]>('http://localhost:3000/Centres').subscribe(
       data=>{
@@ -55,9 +69,7 @@ export class DetailsComponent {
            if(dataString){
             
            if((JSON.parse(dataString).distance<this.DistanceCurrentCenter) && inc<3){
-            
-            console.log('hi',JSON.parse(dataString));
-            this.Centers1.push({id:JSON.parse(dataString).id,name:center.name,tele:center.tele,adresse:center.adresse,distance:JSON.parse(dataString).distance})
+                        this.Centers1.push({id:JSON.parse(dataString).id,name:center.name,tele:center.tele,adresse:center.adresse,distance:JSON.parse(dataString).distance,logReseau:center.logReseau})
             inc++;
            }
            
@@ -149,6 +161,29 @@ export class DetailsComponent {
     } catch (error) {
       console.error('Error converting address to coordinates:', error);
      
+    }
+  }
+
+  
+  sendComment() {
+    if (this.CommentForm.valid) {
+      const newComment: Commentaire = {
+        id: 0,  // Remplacez par la valeur appropriée
+        centre_id: this.centerId,  // Remplacez par la valeur appropriée
+        description: this.CommentForm.get('description')?.value,
+        value: this.CommentForm.get('rating')?.value
+      };
+
+      this.commentaireService.createCommentaire(newComment).subscribe(
+        (response) => {
+          console.log('Commentaire ajouté avec succès', response);
+          // Réinitialiser le formulaire après avoir soumis le commentaire
+          this.CommentForm.reset();
+        },
+        (error) => {
+          console.error('Erreur lors de l\'ajout du commentaire', error);
+        }
+      );
     }
   }
   

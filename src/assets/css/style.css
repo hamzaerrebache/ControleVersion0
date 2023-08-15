@@ -5552,18 +5552,17 @@ ul.wp-block-latest-posts.is-grid.alignwide {
     flex: 0 0 100%;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center;
-    margin: 10px 0 30px; }
+   }
   .ltn__logo-right-menu-option .ltn__header-options,
   .ltn__header-4 .ltn__header-options,
   .ltn__header-5 .ltn__header-options {
     margin-left: 0;
     -webkit-box-flex: 0;
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
+
+
     -webkit-box-pack: center;
     -ms-flex-pack: center;
-    justify-content: center; }
+ }
   .ltn__header-3 .top-bar-right {
     -webkit-box-pack: center;
     -ms-flex-pack: center;

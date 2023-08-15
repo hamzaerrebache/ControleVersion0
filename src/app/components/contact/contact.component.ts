@@ -38,13 +38,13 @@ export class ContactComponent implements OnInit {
     const personalizedMessage = `Cher ${senderName},\n\nMerci pour votre message. Voici le contenu que vous avez envoyé :\n\n${messageBody}\n\nCordialement,\nSiliad`;
   
   
-    emailjs.send('service_mvdtt49', 'template_jukxbfl', {
+    emailjs.send('service_nu1k82a', 'template_hqbij03', {
       message:personalizedMessage,
       From:'Siliad@contact.ma',
       To:senderEmail,
-      subject:'Contact Form Siliad'
+      subject:'Objet : Re : Votre Feedback - ControleTechnique'
     }
-    , '-v9-rC650MIJt4ZNQ')
+    , 'PN9MwwaL0zw9s_F0V')
       .then((result: EmailJSResponseStatus) => {
         console.log(result.text);
       }, (error) => {

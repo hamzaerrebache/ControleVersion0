@@ -19,5 +19,6 @@ p {
   }
   
   .swal2-styled.swal2-cancel {
-    background:blue !important
+    background-color: var(--bs-green);
   }
+
