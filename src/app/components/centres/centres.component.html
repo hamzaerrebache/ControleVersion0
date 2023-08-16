@@ -1,6 +1,6 @@
 BREADCRUMB AREA START
 
-<div style="padding-top: 170px;">
+<div style="padding-top: 230px;">
    
     <div style="padding-top: 100px;
     padding-bottom: 55px;" class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image mb-0" data-bs-bg="assets/img/contact/logoCentres/autoraute.png">
@@ -46,26 +46,34 @@ BREADCRUMB AREA START
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <div class="ltn__location-search mb-100" style="margin-top: -140px;">
+                <div class="ltn__location-search mb-100" >
                     <div class="section-title-area ltn__section-title-2 ">
                         <h1 class="section-title">Trouver votre centre plus proche<span>.</span></h1>
                     </div>
                     <form  class="clearfix" >
-                        <h3>Votre Ville</h3>
-                        <div class="input-item" style="width: auto;">
+                        <div >
                             <form style="padding: 0px; color: floralwhite ;width: auto;" [formGroup]="myForm" (submit)="onSubmit()">
-                                <label style=" margin: 10px;" for="check">Trier par Km</label>
-                                <input type="checkbox"  id="check"  class="form-check-input" formControlName="checkboxControl" style="margin-right: 16px;margin-top: 23px;" (change)="toggleCityInput()">
-                                <input  formControlName="city"  type="text" placeholder="Ville" list="dynmicUserIds" id="inputSearch" style="    margin-right: 28px;">     
-                                <datalist id="dynmicUserIds">
-                                    <option *ngFor="let city of Cities" [value]="city">{{city}}</option>
-                                 </datalist>
-                                 <input  formControlName="nomReseau"  type="text" placeholder="Nom de réseau" list="dynmicUserIds1" id="inputSearch" >  
-                                 <datalist id="dynmicUserIds1">
-                                    <option *ngFor="let resaux of Reseaux" [value]="resaux">{{resaux}}</option>
-                                 </datalist>
-                                 <button class="btn2" type="submit">Chercher</button>
-                                 
+                                <div class="row" style="margin-left: 50px; margin-right: 50px;">
+                                    <div class="col-xl-2 col-sm-12 ">
+                                        <label style=" margin: 10px;" for="check">Trier par Km</label>
+                                        <input type="checkbox"  id="check"  class="form-check-input" formControlName="checkboxControl" style="margin-top: 23px;" (change)="toggleCityInput()">
+                                   </div>
+                                   <div class="col-xl-4 col-sm-12 ">
+                                    <input  formControlName="city"  type="text" placeholder="Ville" list="dynmicUserIds" id="inputSearch" style="width: 100%;">     
+                                    <datalist id="dynmicUserIds">
+                                        <option *ngFor="let city of Cities" [value]="city">{{city}}</option>
+                                     </datalist>
+                                </div>
+                                <div class="col-xl-4 col-sm-12">                                <input  formControlName="nomReseau" style="width:100%" type="text" placeholder="Nom de réseau" list="dynmicUserIds1" id="inputSearch" >  
+                                    <datalist id="dynmicUserIds1">
+                                       <option *ngFor="let resaux of Reseaux" [value]="resaux">{{resaux}}</option>
+                                    </datalist>
+                                </div>
+                                <div class="col-xl-2  col-sm-12">
+                                    <button style="width:100%" class="btn2" type="submit">Chercher</button>
+                                </div>
+         
+                                </div>
                             </form>
                             
                         </div>
@@ -97,13 +105,7 @@ BREADCRUMB AREA START
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                             <div class="btn-wrapper">
-                                <a [href]="'/Center-details?id=' + center.id" style="text-decoration: none;
-                                outline: none;
-                                color: inherit;
-                                background-color: var(--ltn__secondary-color-2);
-                                color: white;
-                                padding-top: 12px; padding-bottom: 12px;
-                                padding: 21px;"><i class="fa fa-memo-circle-check"></i> Détail centre</a>
+                                <a [href]="'/Center-details?id=' + center.id" class="link-link"><i class="fa fa-memo-circle-check"></i> Détail centre</a>
                             </div>
                         </div>
                     </div> 
@@ -120,13 +122,7 @@ BREADCRUMB AREA START
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                             <div class="btn-wrapper">
-                                <a [href]="'/Center-details?id=' + center.id" style="    text-decoration: none;
-                                outline: none;
-                                color: inherit;
-                                background-color: var(--ltn__secondary-color-2);
-                                color: white;
-                                padding-top: 12px; padding-bottom: 12px;
-                                padding: 21px;"><i class="fa fa-memo-circle-check"></i>Détail centre</a>
+                                <a [href]="'/Center-details?id=' + center.id" class="link-link"><i class="fa fa-memo-circle-check"></i>Détail centre</a>
                             </div>
                         </div>
                     </div> 
@@ -154,13 +150,7 @@ BREADCRUMB AREA START
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                             <div class="btn-wrapper" style="margin-left: 25%;">
-                                <a [href]="'/Center-details?id=' + center.id" style="text-decoration: none;
-                                outline: none;
-                                color: inherit;
-                                background-color: var(--ltn__secondary-color-2);
-                                color: white;
-                                padding-top: 12px; padding-bottom: 12px;
-                                padding: 21px;"><i class="fa fa-memo-circle-check"></i>Détail centre</a>
+                                <a [href]="'/Center-details?id=' + center.id" class="link-link"><i class="fa fa-memo-circle-check"></i>Détail centre</a>
                             </div>
                         </div>
                     </div> 
@@ -183,13 +173,7 @@ BREADCRUMB AREA START
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                             <div class="btn-wrapper">
-                                <a [href]="'/Center-details?id=' + center.id" style="text-decoration: none;
-                                outline: none;
-                                color: inherit;
-                                background-color: var(--ltn__secondary-color-2);
-                                color: white;
-                                padding-top: 12px; padding-bottom: 12px;
-                                padding: 21px;"><i class="fa fa-memo-circle-check"></i> Détail centre</a>
+                                <a [href]="'/Center-details?id=' + center.id" class="link-link"><i class="fa fa-memo-circle-check"></i> Détail centre</a>
                             </div>
                         </div>
                     </div> 
@@ -212,13 +196,7 @@ BREADCRUMB AREA START
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                             <div class="btn-wrapper">
-                                <a [href]="'/Center-details?id=' + center.id" style="text-decoration: none;
-                                outline: none;
-                                color: inherit;
-                                background-color: var(--ltn__secondary-color-2);
-                                color: white;
-                                padding-top: 12px; padding-bottom: 12px;
-                                padding: 21px;"><i class="fa fa-memo-circle-check"></i> Détail centre</a>
+                                <a [href]="'/Center-details?id=' + center.id" class="link-link" ><i class="fa fa-memo-circle-check"></i> Détail centre</a>
                             </div>
                         </div>
                     </div> 

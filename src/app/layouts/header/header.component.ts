@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
  
 
   suggestions:string[]=["Azemmour","DEKRA PORTE 4", "DEKRA PORTE 2","DEKRA PORTE 3","CVT El khalil","Centre wifak","CVTM","Visite T .NEAB"]
-  Ville:string[]=["Casablanca","Mohammédia"]
+  Ville:string[]=["Casablanca","Mohammedia"]
   NomReseau:string[]=["DEKRA","REVITEX","SALAMA","SGS"]
   nom!:string;
   filteredSuggestions: string[] = [];

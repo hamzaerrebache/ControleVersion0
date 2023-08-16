@@ -62,12 +62,16 @@ input[type="text"] {
   color: rgb(5, 3, 3);
   padding: 15px;
   background-color: rgb(255 255 255);
-  margin-left: 27px;
   font-size: 16px;
   font-weight: 700;
   font-family: var(--ltn__heading-font);
   padding-top: 17px;
   padding-bottom: 15px;
+  border: 1px solid #d3cfcf;
+}
+.btn2:hover{
+  color: white;
+  background-color: rgb(5, 3, 3);
   border: 1px solid #d3cfcf;
 }
 .ltn__map-item .ltn__location-single-info i {
@@ -102,4 +106,24 @@ datalist option:checked {
 }
 .mb-70{
   margin-top: 220px;
+}
+.btn-wrapper{
+  margin-left: 25%;
+  width: fit-content;
+  background-color: var(--bs-green);
+  color: white;
+  transition: background-color 270ms linear;
+}
+.btn-wrapper:hover{
+  background-color: white;
+  border: 1px solid black;
+  color: black;
+}
+.link-link{
+  text-decoration: none;
+outline: none;
+color: inherit;                     
+padding-top: 12px;
+padding-bottom: 12px;
+padding: 21px;
 }

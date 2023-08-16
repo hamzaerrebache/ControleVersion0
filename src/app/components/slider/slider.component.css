@@ -95,3 +95,7 @@ button.bnt.theme-bnt-1:hover {
       -o-transition: all 0.3s ease 0s;
       transition: all 0.3s ease 0s;
   }
+  @media (max-width: 767px) {
+    .pdt {
+     margin-top: -100px; }
+   }

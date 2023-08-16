@@ -7,3 +7,26 @@
     line-height: 40px;
     text-align: center;
 }
+.ltn__state-location-title {
+    margin: 109px 0px;
+}
+.btn-wrapper{
+    margin-left: 25%;
+    width: fit-content;
+    background-color: var(--bs-green);
+    color: white;
+    transition: background-color 270ms linear;
+  }
+  .btn-wrapper:hover{
+    background-color: white;
+    border: 1px solid black;
+    color: black;
+  }
+  .link-link{
+    text-decoration: none;
+  outline: none;
+  color: inherit;                     
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding: 21px;
+}
