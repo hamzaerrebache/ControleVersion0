@@ -62,7 +62,7 @@ export class CentresComponent implements OnInit{
     });
     
     
-    this.http.get<Center[]>('http://localhost:3000/Centres').subscribe(
+    this.http.get<Center[]>('https://api-pl73.vercel.app/Centres').subscribe(
     (data:Center[])=>{
       this.centers=data;
       console.log(this.centers)

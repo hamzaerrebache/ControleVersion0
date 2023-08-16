@@ -8,7 +8,7 @@ import { Center } from '../models/Center.model';
 })
 export class CentresService {
 
-  private apiUrl = 'http://localhost:3000/Centres';
+  private apiUrl = 'https://api-pl73.vercel.app/Centres';
 
   constructor(private http: HttpClient) { }
 

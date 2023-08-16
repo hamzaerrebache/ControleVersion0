@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CommentaireService {
-  private apiUrl = 'http://localhost:3000/Commentaire';
+  private apiUrl = 'https://api-pl73.vercel.app/Commentaire';
 
   constructor(private http: HttpClient) { }
 

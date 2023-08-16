@@ -42,7 +42,7 @@ export class DetailsComponent {
                   });
                    }
   ngOnInit() {
-    this.http.get<Center[]>('http://localhost:3000/Centres').subscribe(
+    this.http.get<Center[]>('https://api-pl73.vercel.app/Centres').subscribe(
       data=>{
         this.centers=data;
         console.log(data);   
@@ -95,7 +95,7 @@ export class DetailsComponent {
     
   
    
-    this.http.get<Center[]>('http://localhost:3000/Centres', { params: { id: this.centerId.toString() } }).subscribe(
+    this.http.get<Center[]>('https://api-pl73.vercel.app/Centres', { params: { id: this.centerId.toString() } }).subscribe(
       data=>{
         this.centersData=data;
         this.centersData.forEach(center=>{

@@ -116,7 +116,7 @@ export class StepperErrorsExampleComponent  implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.http.get<Center[]>('http://localhost:3000/Centres').subscribe(
+    this.http.get<Center[]>('https://api-pl73.vercel.app/Centres').subscribe(
       (data) => {
           this.centers=data
           console.log(this.centers)
