@@ -98,6 +98,134 @@ datalist option {
   padding: 8px 12px;
   cursor: pointer;
 }
+.map-container {
+  position: absolute;
+  top: 120px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 30px;
+  
+}
+
+.btn-wrapper{
+  margin-left: 25%;
+}
+
+.map-frame {
+  padding: 10px;
+  background-color: darkseagreen;
+  border: 2px solid rgb(216, 210, 210);
+  height: 590px;
+  width: 100%;
+  margin-top: 660px;
+}
+.ltn__google-map-locations-area{
+display: none;
+}
+
+#map {
+  height: 100%;
+  z-index: 0;
+
+}
+button{
+  color: white;
+  padding: 0;
+}
+button.btn:hover {
+  color: rgba(90,160,95,1);
+}
+
+
+@media only screen and (max-width:600px)  {
+.input-item{
+  width: 330px;
+  padding: 26px;
+}
+
+}
+/* Custom styles for the input element */
+input[type="text"] {
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 0px;
+font-size: 16px;
+width: 150px;
+height: 60px;
+}
+.input-item{
+  width: 333px;
+}
+.hidden-center {
+display: none;
+}
+.btn-wrapper{
+margin-left: 25%;
+width: fit-content;
+background-color: var(--bs-green);
+color: white;
+transition: background-color 270ms linear;
+}
+.btn-wrapper:hover{
+background-color: white;
+border: 1px solid black;
+color: black;
+}
+.link-link{
+text-decoration: none;
+outline: none;
+color: inherit;                     
+padding-top: 12px;
+padding-bottom: 12px;
+padding: 21px;
+}
+
+.btn2{
+color: rgb(5, 3, 3);
+padding: 15px;
+background-color: rgb(255 255 255);
+margin-left: 27px;
+font-size: 16px;
+font-weight: 700;
+font-family: var(--ltn__heading-font);
+padding-top: 17px;
+padding-bottom: 15px;
+border: 1px solid #d3cfcf;
+}
+.ltn_map-item .ltn_location-single-info i {
+margin-right: 10px;
+color: var(--ltn__secondary-color);
+width: 40px;
+background-color: transparent;
+height: 40px;
+line-height: 40px;
+text-align: center;
+}
+
+/* Custom styles for the datalist dropdown */
+/* Note: Styling the datalist directly is not supported in all browsers. */
+/* The following style is specific to WebKit-based browsers like Chrome and Safari */
+input[type="text"]::-webkit-calendar-picker-indicator {
+display: none; /* Hide the default dropdown arrow */
+}
+
+
+
+/* Style the options inside the datalist */
+datalist option {
+padding: 8px 12px;
+cursor: pointer;
+}
+
+/* Style the selected option */
+datalist option:checked {
+background-color: #007bff;
+color: #fff;
+}
+.mb-70{
+margin-top: 220px;
+}
 
 /* Style the selected option */
 datalist option:checked {
@@ -126,4 +254,16 @@ color: inherit;
 padding-top: 12px;
 padding-bottom: 12px;
 padding: 21px;
+}
+
+/* @media (max-width: 767px)
+.ltn__breadcrumb-area-2 {
+    padding-top: 240px;
+    padding-bottom: 80px;
+    margin-top: 44px;
+} */
+@media(max-width:767px){
+  .ltn__breadcrumb-area-2{
+     margin-top: 40px;
+}
 }

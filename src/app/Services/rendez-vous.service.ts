@@ -7,7 +7,7 @@ import { RendezVous  } from '../models/RendezVous';
   providedIn: 'root'
 })
 export class RendezVousService {
-  private apiUrl = 'https://api-pl73.vercel.app/Rendez_vous';
+  private apiUrl = 'https://api-control-technique.vercel.app/Rendez_vous';
 
   constructor(private http: HttpClient) { }
 

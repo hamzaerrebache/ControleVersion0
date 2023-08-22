@@ -1,0 +1,29 @@
+h1.title-period::after{
+    content: "";
+    display: block;
+    background-color: var(--ltn__secondary-color);
+    width: 30%;
+    height: 0.375rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
+}
+td {
+    color: #8599b7;
+}
+h3 {
+    color: #3f56aa;
+}
+h3::after {
+    content: "";
+    display: block;
+    background-color: var(--ltn__secondary-color);
+    width: 3.125rem;
+    height: 0.375rem;
+    margin-top: 0.625rem;
+    margin-bottom: 1.875rem;
+}
+.Table{
+    
+    margin-bottom: 10px;
+
+}

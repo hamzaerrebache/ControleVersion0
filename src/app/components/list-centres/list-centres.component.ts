@@ -48,16 +48,8 @@ export class ListCentresComponent  implements OnInit {
           console.error('API Error:', error);
         }
       );
-    });
-
-
-    
-    
-   
-    
+    }); 
   }
-
-
   
 }
   

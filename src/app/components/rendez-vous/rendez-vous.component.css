@@ -4,3 +4,20 @@
 .mat-mdc-form-field {
     margin-top: 16px;
   }
+
+.ltn_breadcrumb-area{
+  margin-top: 40px; 
+  padding-top: 100px;
+  padding-bottom: 28px;
+}
+
+/* @media (max-width: 767px)
+.ltn_breadcrumb-area{
+    margin-bottom: 80px;
+} */
+
+@media (max-width:767px){
+  .ltn__breadcrumb-area-2{
+      margin-top: 50px;
+  }
+}

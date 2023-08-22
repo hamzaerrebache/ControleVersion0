@@ -1,14 +1,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<div class="article-content clearfix " *ngFor="let center of centersData">
+<div class="article-content clearfix "  *ngFor="let center of centersData">
   
     
   <br />
   <div style="margin-top: 77px;" class="entry-content clearfix">
-    <div style="padding-top: 182px;
+    <div style="padding-top: 55px;
         margin-bottom: -252px;">
   <div class="row">
-    <div class="col-md-8" style="height: 42px;
+    <div class="titre col-md-8" style="height: 42px;
     margin-top: 56px;">
      <h1 style="font-size: 40px;
      color: var(--bs-green);
@@ -17,8 +17,13 @@
     </div>
     <div class="col-md-4" style="height: 100px; position: relative;">
       <img src="{{center.logReseau}}" style="position: absolute; bottom: 0; right: 12px;">
+    </div>
+  <div class="col-md-12 mt-10">
+    <div  class="d-flex justify-content-between">
+      <div ><a class="button1" href="Reclamation"  (click)="Reclamation(center.id)" > Passer une réclamation</a></div>
+      <div><a class="button2" href="Rendez-vous"  (click)="RendezVous(center.id)" > Prenez un rendez-vous</a></div>
+    </div>
   </div>
-  
 
   </div>  
 </div>
@@ -64,7 +69,7 @@
     position: relative;
     padding-bottom: 20px;
     /* display: inline-block; */
-    text-align: center;">Horaires d’ouvertures :</h3>
+    text-align: center;">Horaires d'ouvertures :</h3>
     <div class="col-xl-4 col-md-5" style="border: 2px solid;width: auto;">
       <div class="footer-widget ltn__footer-timeline-widget ltn__footer-timeline-widget-1" style="margin-left: -31px;">
           
@@ -131,8 +136,49 @@
           </div>
         </div>
       </div>
-      
     </div>
+  <!-- Popular Post Widget -->
+  <div class="widget ltn__popular-post-widget">
+    <div class="row">
+      <div class="col-6">
+        <h4 class="ltn__widget-title ltn__widget-title-border">Commentaires des Clients sur le Centre</h4>
+      </div>
+      <div class="col-6">
+        <div class="card-body p-2  d-flex align-items-center" style="margin-top: -11px;">
+          <h6 class="text-success fw-bold small mb-0 me-1">Commentaires "Activés"</h6>
+          <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" [(ngModel)]="commentsEnabled" checked />
+            <label class="form-check-label" for="flexSwitchCheckChecked"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+     <div class="container"></div>
+      <ul *ngIf="commentsEnabled" >
+          <li *ngFor="let comment of allCommentParCentre">
+              <div class="popular-post-widget-item clearfix">
+                  <div class="popular-post-widget-img">
+                     <img src="assets/img/team/5.jpg" alt="#">
+                  </div>
+                  <div class="popular-post-widget-brief">
+                    <h2 class="text-danger">{{comment.name}}</h2>
+                      <h4>{{comment.description}}.</h4>
+                      <div class="ltn__blog-meta">
+                          <ul>
+                            <li class="ltn__blog-date">
+                              <a href="#"><i class="far fa-calendar-alt"></i>{{comment.date}}</a>
+                          </li>
+                          <li>
+                             <p-rating [(ngModel)]="comment.value" [readonly]="true" [cancel]="false"></p-rating>
+                          </li>
+                          </ul>
+                      </div>
+                  </div>
+              </div>
+          </li> 
+      </ul>
+  </div>
+  <!-- Menu Widget (Category) -->
     <div class="ltn_page-details-area ltn_blog-details-area mb-50 mt-50">
       <div class="container">
           <div class="row">
@@ -146,18 +192,15 @@
                                 <div class="flex justify-content-center " style="padding-bottom: 20px;">
                                   <p-rating  formControlName="rating" [cancel]="false"></p-rating>
                                 </div>
+                                <div class="input-item input-item-name ltn__custom-icon col-md-12">
+                                  <input type="text" placeholder="Type your name...." name="name" formControlName="name">
+                               </div>
                                   <div class="input-item input-item-textarea ltn__custom-icon col-md-12">
                                       <textarea placeholder="Type your comments...."  name="description" formControlName="description"></textarea>
                                   </div>
                                   <div class="input-item input-item-name  col-md-12"> 
                                       <div class="btn-wrapper">
-                                          <button style="background-color: var(--ltn__secondary-color-3);
-                                          height: 61px;
-                                          width: 265px;
-                                          font-family: var(--ltn__heading-font);
-                                          font-size: 19px;
-                                          font-weight: bold;
-                                      " type="submit"><i class="far fa-comments"></i> Poster un commentaire</button>
+                                          <button class="commont" type="submit"><i class="far fa-comments"></i> Poster un commentaire</button>
                                       </div>
                                   </div>
                                   

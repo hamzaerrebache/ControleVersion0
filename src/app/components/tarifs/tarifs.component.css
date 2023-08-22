@@ -18,6 +18,8 @@ titre{
     animation-fill-mode: forwards;
   }
     
+  .ltn__product-item-3{border:none}
+  
   @keyframes typing {
     from { width: 0 }
     to { width: 100% }

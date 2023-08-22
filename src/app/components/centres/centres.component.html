@@ -1,6 +1,6 @@
 BREADCRUMB AREA START
 
-<div style="padding-top: 230px;">
+<div style="padding-top: 110px;">
    
     <div style="padding-top: 100px;
     padding-bottom: 55px;" class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image mb-0" data-bs-bg="assets/img/contact/logoCentres/autoraute.png">
@@ -42,13 +42,13 @@ BREADCRUMB AREA START
 </div>
 
 
-<div class="ltn__google-map-locations-list-area mt-115 mb-70">
+<div class="ltn__google-map-locations-list-area  mb-70">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="ltn__location-search mb-100" >
                     <div class="section-title-area ltn__section-title-2 ">
-                        <h1 class="section-title">Trouver votre centre plus proche<span>.</span></h1>
+                        <h1 class="section-title " style="margin-top: -155px;">Trouver votre centre plus proche<span>.</span></h1>
                     </div>
                     <form  class="clearfix" >
                         <div >
@@ -80,21 +80,127 @@ BREADCRUMB AREA START
                        
                       </form>   
                 </div>
-                <div *ngIf="myForm.value.checkboxControl==false && error==true">
-                    <p-messages [(value)]="messages" [enableService]="false"></p-messages>
-                  </div>
+                
             </div>
-           
-          
             <div >
-                <div *ngIf="ville && !(ville && nomReseau)" class="row">
-                    <div *ngIf="ville" class="col-md-12">
-                        <div class="ltn__state-location">
-                            <h2 class="ltn__state-location-title">{{ville}}</h2>
+                <div class="row" *ngIf="isChecked==true && nomReseau && !ville">
+                    <div class="col-md-12">
+                        <div >
+                            <h1 style="color: #707070;
+                            font-weight: 300;
+                            margin: 20px 0;"><span style="color: #322783;" >{{getCentersOnSortByReseauName(nomReseau).length}}</span> Résultats trouvés</h1>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row" *ngIf="isChecked==true && nomReseau && !ville">
+                  <div *ngFor="let center of getCentersOnSortByReseauName(nomReseau)" class="col-md-4"  >
+                            <div class="ltn__map-item"   [style.background-image]="'url(' + center.logReseau + ')'" style="
+                                background-repeat: no-repeat;
+                                background-position: top right;
+                                background-size: 72px;" >
+                                <div class="container">
+                                    <div class="info" style="margin-top:-16px">
+                                        <!-- <span  [ngStyle]="{'left.px': center.distance >= 10 ? 280 : 290}" *ngIf="center.distance > 0 " style="font-size: 1rem; font-weight: bold;     left: 277px;padding: 1px;
+                                            position: absolute;
+                                            color: rgb(214, 14, 14);margin-top: 5px;" >{{center.distance}} Km</span> -->
+                                            <i style="color: red;" class="fas fa-map-marker-alt"> {{center.distance}} Km</i> 
+                                            <h3 class="ltn__location-name" >  {{  center.name}} </h3>
+                                    </div>
+                                </div>
+                                <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
+                                <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
+                                <div class="btn-wrapper" style="margin-left: 25%;">
+                                    <a [href]="'/Center-details?id=' + center.id" class="link-link"><i
+                                            class="fa fa-memo-circle-check"></i>Détail centre</a>
+                                </div>
+                            </div>
+                       
+                
+                  </div>
+                </div>
+                <div class="row" *ngIf="isChecked==true && ville && !nomReseau ">
+                    <div class="col-md-12">
+                        <div >
+                            <h1 style="color: #707070;
+                            font-weight: 300;
+                            margin: 20px 0;"><span style="color: #322783;" >{{getCentersOnSortByCity(ville).length}}</span> Résultats trouvés</h1>
                         </div>
                     </div>
                 </div>
-                <div class="row" *ngIf="ville && !(ville && nomReseau)" >
+                <div class="row" *ngIf="isChecked==true && ville && !nomReseau">
+                    <div *ngFor="let center of getCentersOnSortByCity(ville)" class="col-md-4"  >
+  
+                   
+                              <div class="ltn__map-item"   [style.background-image]="'url(' + center.logReseau + ')'" style="
+                                  background-repeat: no-repeat;
+                                  background-position: top right;
+                                  background-size: 72px;" >
+                                  <div class="container">
+                                    <div class="info" style="margin-top:-16px">
+                                        <!-- <span  [ngStyle]="{'left.px': center.distance >= 10 ? 280 : 290}" *ngIf="center.distance > 0 " style="font-size: 1rem; font-weight: bold;     left: 277px;padding: 1px;
+                                            position: absolute;
+                                            color: rgb(214, 14, 14);margin-top: 5px;" >{{center.distance}} Km</span> -->
+                                            <i style="color: red;" class="fas fa-map-marker-alt"> {{center.distance}} Km</i> 
+                                            <h3 class="ltn__location-name" >  {{  center.name}} </h3>
+                                    </div>
+                                  </div>
+                                  <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
+                                  <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
+                                  <div class="btn-wrapper" style="margin-left: 25%;">
+                                      <a [href]="'/Center-details?id=' + center.id" class="link-link"><i
+                                              class="fa fa-memo-circle-check"></i>Détail centre</a>
+                                  </div>
+                              </div>
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="isChecked==true && ville && nomReseau">
+                    <div class="col-md-12">
+                        <div >
+                            <h1 style="color: #707070;
+                            font-weight: 300;
+                            margin: 20px 0;"><span style="color: #322783;" >{{getCentersOnSortCityandReseauName(ville,nomReseau).length}}</span> Résultats trouvés</h1>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="isChecked==true && ville && nomReseau">
+                    <div *ngFor="let center of getCentersOnSortCityandReseauName(ville,nomReseau)" class="col-md-4"  >
+                              <div class="ltn__map-item"  [style.background-image]="'url(' + center.logReseau + ')'" style="
+                                  background-repeat: no-repeat;
+                                  background-position: top right;
+                                  background-size: 72px;" >
+                                  <div class="container">
+                                    <div class="info" style="margin-top:-16px">
+                                        <!-- <span  [ngStyle]="{'left.px': center.distance >= 10 ? 280 : 290}" *ngIf="center.distance > 0 " style="font-size: 1rem; font-weight: bold;     left: 277px;padding: 1px;
+                                            position: absolute;
+                                            color: rgb(214, 14, 14);margin-top: 5px;" >{{center.distance}} Km</span> -->
+                                            <i style="color: red;" class="fas fa-map-marker-alt"> {{center.distance}} Km</i> 
+                                            <h3 class="ltn__location-name" >  {{  center.name}} </h3>
+                                    </div>
+                                  </div>
+                                  <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
+                                  <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
+                                  <div class="btn-wrapper" style="margin-left: 25%;">
+                                      <a [href]="'/Center-details?id=' + center.id" class="link-link"><i
+                                              class="fa fa-memo-circle-check"></i>Détail centre</a>
+                                  </div>
+                              </div>
+                              <div *ngIf="center.nomReseau!==nomReseau && center.ville!==ville" style="display: none;">
+                               
+                              </div>
+                    </div>
+                  </div>
+                
+                <div *ngIf="ville && !(nomReseau) && isChecked==false && error==false " class="row">
+                    <div class="col-md-12">
+                        <div >
+                            <h1 style="color: #707070;
+                            font-weight: 300;
+                            margin: 20px 0;"><span style="color: #322783;" >{{getCentersByCity().length}}</span> Résultats trouvés</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="ville && !(nomReseau) && error==false && isChecked==false" >
                     <div class="col-md-4" *ngFor="let center of getCentersByCity()" >
                         <div class="ltn__map-item" [style.background-image]="'url(' + center.logReseau + ')'" style="
                         background-repeat: no-repeat;
@@ -104,14 +210,31 @@ BREADCRUMB AREA START
                             <h3 class="ltn__location-name" >  {{  center.name}} </h3>
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
-                            <div class="btn-wrapper">
+                            <div class="btn-wrapper" >
                                 <a [href]="'/Center-details?id=' + center.id" class="link-link"><i class="fa fa-memo-circle-check"></i> Détail centre</a>
                             </div>
                         </div>
                     </div> 
                 </div>
-                
-                <div class="row" *ngIf="( !ville && !nomReseau) && myForm.value.checkboxControl!==true "  >
+                <div class="row" *ngIf=" isChecked==false && !ville && !nomReseau ">
+                    <div class="col-md-12">
+                        <div >
+                            <h1 style="color: #707070;
+                            font-weight: 300;
+                            margin: 20px 0;"><span style="color: #322783;" >{{centers.length}}</span> Résultats trouvés</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="error==true && isChecked==false && !(isChecked==false && !ville && !nomReseau) ">
+                    <div class="col-md-12">
+                        <div >
+                            <h1 style="color: #707070;
+                            font-weight: 300;
+                            margin: 20px 0;"><span style="color: #322783;" >0</span> Résultats trouvés</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf=" isChecked==false && !ville && !nomReseau "  >
                     <div class="col-md-4" *ngFor="let center of centers" >
                         <div class="ltn__map-item" [style.background-image]="'url(' + center.logReseau + ')'" style="
                         background-repeat: no-repeat;
@@ -128,18 +251,27 @@ BREADCRUMB AREA START
                     </div> 
                 </div>
   
-                
-                <div class="row" *ngIf="myForm.value.checkboxControl && calcul!==false && !ville  "  >
+                <div class="row" *ngIf="!nomReseau && !ville && isChecked==true ">
+                    <div class="col-md-12">
+                        <div >
+                            <h1 style="color: #707070;
+                            font-weight: 300;
+                            margin: 20px 0;"><span style="color: #322783;" >{{Centers1.length}}</span> Résultats trouvés</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="!nomReseau && !ville && isChecked==true ">
                     <div class="col-md-4" *ngFor="let center of Centers1" >
                         <div class="ltn__map-item" [style.background-image]="'url(' + center.logReseau + ')'" style="
                         background-repeat: no-repeat;
                         background-position: top right;
                         background-size: 72px;">
                             <div class="container">
-                                <div class="info">
-                                    <span  [ngStyle]="{'left.px': center.distance >= 10 ? 280 : 290}" *ngIf="center.distance > 0 " style="font-size: 1rem; font-weight: bold;     left: 277px;padding: 1px;
+                                <div class="info" style="margin-top:-16px">
+                                    <!-- <span  [ngStyle]="{'left.px': center.distance >= 10 ? 280 : 290}" *ngIf="center.distance > 0 " style="font-size: 1rem; font-weight: bold;     left: 277px;padding: 1px;
                                         position: absolute;
-                                        color: rgb(214, 14, 14);margin-top: 5px;" >{{center.distance}} Km</span>
+                                        color: rgb(214, 14, 14);margin-top: 5px;" >{{center.distance}} Km</span> -->
+                                        <i style="color: red;" class="fas fa-map-marker-alt"> {{center.distance}} Km</i> 
                                         <h3 class="ltn__location-name" >  {{  center.name}} </h3>
                                 </div>
 
@@ -150,19 +282,28 @@ BREADCRUMB AREA START
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                             <div class="btn-wrapper" style="margin-left: 25%;">
-                                <a [href]="'/Center-details?id=' + center.id" class="link-link"><i class="fa fa-memo-circle-check"></i>Détail centre</a>
+                                <a [href]="'/Center-details?id=' + center.id" class="link-link" ><i class="fa fa-memo-circle-check"></i>Détail centre</a>
                             </div>
                         </div>
                     </div> 
                 </div>
-                <div *ngIf="nomReseau && error==false && !(nomReseau && ville)" class="row">
-                    <div *ngIf="nomReseau &&  error==false" class="col-md-12">
+                <div *ngIf="nomReseau && !(nomReseau && ville)" class="row">
+                    <!-- <div *ngIf="nomReseau &&  error==false" class="col-md-12">
                         <div class="ltn__state-location">
                             <h2 class="ltn__state-location-title">{{nomReseau}}</h2>
                         </div>
+                    </div> -->
+                </div>
+                <div class="row" *ngIf="nomReseau && error==false  && !(nomReseau && ville)">
+                    <div class="col-md-12">
+                        <div >
+                            <h1 style="color: #707070;
+                            font-weight: 300;
+                            margin: 20px 0;"><span style="color: #322783;" >{{getCentersByReseau().length}}</span> Résultats trouvés</h1>
+                        </div>
                     </div>
                 </div>
-                <div class="row" *ngIf="nomReseau && error==true  && !(nomReseau && ville)" >
+                <div class="row" *ngIf="nomReseau && error==false  && !(nomReseau && ville)" >
                     <div class="col-md-4" *ngFor="let center of getCentersByReseau()" >
                         <div class="ltn__map-item" [style.background-image]="'url(' + center.logReseau + ')'" style="
                         background-repeat: no-repeat;
@@ -178,10 +319,13 @@ BREADCRUMB AREA START
                         </div>
                     </div> 
                 </div>
-                <div *ngIf="nomReseau && ville && error==false" class="row">
-                    <div *ngIf="nomReseau && ville && error==false" class="col-md-12">
-                        <div class="ltn__state-location">
-                            <h2 class="ltn__state-location-title">{{ville}} : {{nomReseau}}</h2>
+                
+                <div class="row" *ngIf="nomReseau && ville && error==false">
+                    <div class="col-md-12">
+                        <div >
+                            <h1 style="color: #707070;
+                            font-weight: 300;
+                            margin: 20px 0;"><span style="color: #322783;" >{{getCentersByCityAndReseau().length}}</span> Résultats trouvés</h1>
                         </div>
                     </div>
                 </div>
@@ -196,14 +340,17 @@ BREADCRUMB AREA START
                             <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                             <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                             <div class="btn-wrapper">
-                                <a [href]="'/Center-details?id=' + center.id" class="link-link" ><i class="fa fa-memo-circle-check"></i> Détail centre</a>
+                                <a [href]="'/Center-details?id=' + center.id" class="link-link"><i class="fa fa-memo-circle-check"></i> Détail centre</a>
                             </div>
                         </div>
                     </div> 
                 </div>
                 
                
-            </div>    
+            </div>
+           
+          
+               
                   
         </div>
     </div>

@@ -322,27 +322,142 @@
   "Commentaire": [
     {
       "id": 1,
-      "centre_id": 5,
-      "description": "string",
-      "value": 5
+      "centre_id": 4,
+      "description": "ghgjgdjhej",
+      "value": 4,
+      "date": "20/08/2023 11:25"
     },
     {
       "id": 2,
-      "centre_id": 8,
-      "description": "tsduyegugeugeewfewfwefweukew",
-      "value": 4
+      "centre_id": 4,
+      "description": "ewwewyte",
+      "value": 4,
+      "date": "20/08/2023 11:29"
     },
     {
       "id": 3,
-      "centre_id": 8,
-      "description": "sresrsre",
-      "value": 4
+      "centre_id": 4,
+      "description": "efyuuewuefwfe",
+      "value": 4,
+      "date": "20/08/2023 11:41"
     },
     {
       "id": 4,
       "centre_id": 4,
-      "description": "mal service ce qui concere les voitures",
-      "value": 4
+      "description": "swswsw",
+      "value": 4,
+      "date": "20/08/2023 11:41"
+    },
+    {
+      "id": 5,
+      "centre_id": 4,
+      "description": "sws",
+      "name": "Ahmed",
+      "value": 4,
+      "date": "20/08/2023 11:44"
+    },
+    {
+      "id": 6,
+      "centre_id": 4,
+      "description": "ikkkyjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj",
+      "name": "hamza",
+      "value": 5,
+      "date": "20/08/2023 13:52"
+    },
+    {
+      "id": 7,
+      "centre_id": 4,
+      "description": "that s good for you ",
+      "name": "hamza",
+      "value": 4,
+      "date": "20/08/2023 14:16"
+    },
+    {
+      "id": 8,
+      "centre_id": 4,
+      "description": "saaas",
+      "name": "Azemmour",
+      "value": 4,
+      "date": "20/08/2023 14:31"
+    },
+    {
+      "id": 9,
+      "centre_id": 4,
+      "description": "yfhhyhygyujiuu",
+      "name": "soufiane",
+      "value": 4,
+      "date": "20/08/2023 14:31"
+    },
+    {
+      "id": 10,
+      "centre_id": 4,
+      "description": "fy666666666666666666666666",
+      "name": "Azemmour",
+      "value": 4,
+      "date": "20/08/2023 14:31"
+    },
+    {
+      "id": 11,
+      "centre_id": 4,
+      "description": "hhgvhgvh",
+      "name": "Ahmed",
+      "value": 2,
+      "date": "20/08/2023 14:31"
+    },
+    {
+      "id": 12,
+      "centre_id": 4,
+      "description": "ftf",
+      "name": "ggv",
+      "value": 5,
+      "date": "20/08/2023 14:31"
     }
-  ]
+  ],
+  "Reclamation": [
+    {
+      "id": 1,
+      "first_name": "Errebache",
+      "last_name": "Hamza",
+      "email": "errebachehamza@gmail.com",
+      "tele": "0699494484",
+      "make": "BMW ",
+      "model": "6 series",
+      "matricule": "Ms43433",
+      "centre_id": 3,
+      "date": "2023-08-16T23:00:00.000Z",
+      "time": "15:00 PM - 17:00 PM",
+      "typeRec": "temps d'attente",
+      "description": "Je souhaiterais déposer une réclamation concernant ma voiture de marque BMW, modèle 6 series, immatriculée Ms43433. Lors de ma visite technique au centre numéro 3 le 16 août 2023, j'ai rencontré des problèmes de temps d'attente excessif. Mon rendez-vous était prévu de 15h00 à 17h00, mais j'ai finalement dû attendre jusqu'à 18h30 pour être pris en charge. Cela a provoqué un retard dans ma journée et a été très inconfortable. De plus, la restitution de mon véhicule après la visite technique a été marquée comme 'Restitué après la visite technique', mais je n'ai pas reçu de confirmation claire quant à l'état de mon véhicule ni aux actions qui ont été entreprises. J'aimerais que cette situation soit résolue rapidement, peut-être par un remboursement partiel pour le temps d'attente excessif et une clarification sur l'état de mon véhicule après la visite technique. Je joins des copies de mes reçus pour référence.",
+      "copyReceipt": "C:\\fakepath\\1684395761.jpg",
+      "media": "C:\\fakepath\\1683764968.jpg",
+      "StatutVehucule": "Restitué après la visite technique",
+      "resolution": "remboursement",
+      "trackingCode": "TsLKqJ",
+      "statut": false
+    },
+    {
+      "id": 2,
+      "first_name": null,
+      "last_name": null,
+      "email": null,
+      "tele": null,
+      "make": null,
+      "model": null,
+      "matricule": null,
+      "centre_id": null,
+      "date": null,
+      "time": null,
+      "typeRec": null,
+      "description": null,
+      "copyReceipt": null,
+      "media": null,
+      "StatutVehucule": null,
+      "resolution": null,
+      "trackingCode": "S8NQX0",
+      "statut": false
+    }
+  ],
+  "Images":[]
+  
+  
 }

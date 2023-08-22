@@ -1,0 +1,46 @@
+<div class="ltn__google-map-locations-list-area pt-150 mb-70" >
+    <div  class="container">
+        <div class="row" >
+            <div class="col-lg-12 mt-115">
+                <div >
+                    <h1 style="color: #707070;
+                    font-weight: 300;
+                    margin: 20px 0;"><span style="color: #322783;" >{{searchResults.length}}</span> Résultats trouvés</h1>
+                </div>
+            </div>
+            
+            <div class="col-lg-4" *ngFor="let center of searchResults" >
+               
+               
+                    <div class="ltn__map-item" [style.background-image]="'url(' + center.logReseau + ')'" style="
+                    background-repeat: no-repeat;
+                    background-position: top right;
+                    background-size: 72px;">
+                        <div class="container">
+                            <div class="info">
+                                <span  *ngIf="center.distance > 0 " style="font-size: 1rem; font-weight: bold;     left: 277px;padding: 1px;
+                                    position: absolute;
+                                    color: rgb(214, 14, 14);margin-top: 5px;" >{{center.distance}} Km</span>
+                                    <h3 class="ltn__location-name" >  {{  center.name}} </h3>
+                            </div>
+
+                            
+                        </div>
+                        
+                        
+                        <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
+                        <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
+                        <div class="btn-wrapper" style="margin-left: 25%;">
+                            <a [href]="'/Center-details?id=' + center.id" class="link-link"><i class="fa fa-memo-circle-check"></i> Details Center</a>
+                        </div>
+                    
+                </div>
+            </div> 
+            <div *ngIf="searchResults.length==0" class="alert alert-danger" role="alert">
+                <h1  style="text-align: center;">Cet centre n'existe pas dans nos centres</h1>
+            </div>
+            
+            
+        </div>
+    </div>
+</div>

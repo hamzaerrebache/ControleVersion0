@@ -1,8 +1,8 @@
  <!-- SLIDER AREA START (slider-6) -->
- <div style="padding-top: 196px;" class="ltn__slider-area ltn__slider-3 ltn__slider-6 section-bg-1">
+ <div style="padding-top: 140px;" class="ltn__slider-area ltn__slider-3 ltn__slider-6 section-bg-1">
     <div style="height: 570px;" class="ltn__slide-one-active slick-slide-arrow-1 slick-slide-dots-1 arrow-white">
         <!-- ltn__slide-item  -->
-        <div style="height: 570px;" class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3 ltn__slide-item-5 text-color-white bg-image bg-overlay-theme-black-80" data-bs-bg="assets/slider/41.jpg">
+        <div style="height: 532px;" class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3 ltn__slide-item-5 text-color-white bg-image bg-overlay-theme-black-80" data-bs-bg="assets/slider/41.jpg">
             <div class="ltn__slide-item-inner">
                 <div class="container">
                     <div class="row">
@@ -29,7 +29,7 @@
             </div>
         </div>
         <!-- ltn__slide-item  -->
-        <div style="height: 570px;" class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3 ltn__slide-item-5 text-color-white bg-image bg-overlay-theme-black-80" data-bs-bg="assets/slider/200.jpg">
+        <div style="height: 532px;" class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3 ltn__slide-item-5 text-color-white bg-image bg-overlay-theme-black-80" data-bs-bg="assets/slider/200.jpg">
             <div class="ltn__slide-item-inner">
                 <div class="container">
                     <div class="row">
@@ -44,8 +44,8 @@
                                                 <p>Trouvez le centre de contrôle technique le plus proche de chez vous en un instant ! Utilisez notre outil de recherche ci-dessous et prenez rendez-vous facilement.</p>
                                             </div>
                                             <div class="slider-search"  class="btn-wrapper animated">
-                                                <form class="d-flex">
-                                                    <input style="margin-right: 5px;" class="form-control"  type="search" placeholder="Chercher Votre Centre de Contrôle" aria-label="Search">
+                                                <form class="d-flex" [formGroup]="formData" (submit)="onSubmit()">
+                                                    <input style="margin-right: 5px; border-radius: 0px;" class="form-control" formControlName="data"  type="search" placeholder="Ville ou nom de centre ou nom de réseau" aria-label="Search">
                                                     <button  type="submit" class="bnt theme-bnt-1">Chercher</button>
                                                   </form>
                                             </div>
@@ -60,7 +60,7 @@
         </div>
         <!--  -->
           <!-- ltn__slide-item  -->
-        <div style="height: 570px;" class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3 ltn__slide-item-5 text-color-white bg-image bg-overlay-theme-black-80" data-bs-bg="assets/slider/150.jpg">
+        <div style="height: 532px;" class="ltn__slide-item ltn__slide-item-2 ltn__slide-item-3 ltn__slide-item-5 text-color-white bg-image bg-overlay-theme-black-80" data-bs-bg="assets/slider/150.jpg">
             <div class="ltn__slide-item-inner">
                 <div class="container">
                     <div class="row">

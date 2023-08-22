@@ -1,7 +1,4 @@
 <mat-stepper [linear]="true" [formGroup]="stepperFormGroup" labelPosition="bottom" #stepper style="margin-bottom: 100px;">
-
-
-
     <mat-step [stepControl]="firstFormGroup">
       <form [formGroup]="firstFormGroup">
         <ng-template matStepLabel> Informations personnelles</ng-template>
@@ -48,13 +45,10 @@
             </div>
         </div>
         <div>
-          <button mat-button matStepperNext>Suivant</button>
+          <button matStepperNext class="button">Suivant</button>
         </div>
       </form>
     </mat-step>
-
-
-
     <mat-step [stepControl]="secondFormGroup" optional>
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Informations sur les véhicules</ng-template>
@@ -79,23 +73,18 @@
                </div>
                <div class="col-md-4">
                 <mat-form-field>
-                    <mat-label>Année</mat-label>
-                    <input matInput formControlName="yearCtrl" placeholder="Ex. 2015, 2016, 2017..."
+                    <mat-label>Numéro d'immatriculation</mat-label>
+                    <input matInput formControlName="MatriculeCtrl" placeholder="Numéro d'immatriculation"
                      required>
                   </mat-form-field>
-                  <mat-error *ngIf="secondFormGroup?.get('yearCtrl')?.hasError('required')">L'année est requise.</mat-error>
-                  <mat-error *ngIf="secondFormGroup?.get('yearCtrl')?.hasError('pattern')">L'année doit être au format YYYY (ex. 2023).</mat-error>
-               </div>
-               <h6>De quel type de service avez-vous besoin pour votre véhicule ?</h6>
-               <div class="input-item input-item-textarea ltn__custom-icon">
-                   <textarea name="ltn__message" placeholder="Enter message" matInput formControlName="textCtrl" ></textarea>
-                   <mat-error *ngIf="secondFormGroup?.get('textCtrl')?.hasError('required')">La description est requise.</mat-error>
+                  <mat-error *ngIf="secondFormGroup?.get('MatriculeCtrl')?.hasError('required')">Le matricule est requis.</mat-error>
+                  <mat-error *ngIf="secondFormGroup?.get('MatriculeCtrl')?.hasError('maxlength')">Le matricule  ne doit pas dépasser 100 caractères.</mat-error>
                </div>
           </div>
     
         <div>
-          <button mat-button matStepperPrevious>Retour</button>
-          <button mat-button matStepperNext>Suivant</button>
+          <button  class="button" matStepperPrevious>Retour</button>
+          <button  class="button" matStepperNext>Suivant</button>
         </div>
       </form>
     </mat-step>
@@ -112,18 +101,27 @@
                 <mat-form-field>
                   <mat-label>choiser votre centre</mat-label>
                   <mat-select formControlName="centreCtrl" >
-                    <mat-option *ngFor="let  centre of centres" [value]="centre.value">
-                      {{centre.viewValue}}
-                    </mat-option>
+                    <ng-container *ngIf="selectedCentreId === null">
+                        <mat-option *ngFor="let  centre of filteredCentres" [value]="centre.value">
+                         {{centre.viewValue}}
+                        </mat-option>
+                    </ng-container>
+
+                    <ng-container *ngIf="selectedCentreId !== null">
+                      <mat-option *ngFor="let centre of filteredCentres" [value]="centre.value" >
+                        {{ centre.viewValue }}
+                      </mat-option>
+                    </ng-container>
                   </mat-select>
+                  
                   <mat-error *ngIf="thirdFormGroup?.get('centreCtrl')?.hasError('required')">Veuillez sélectionner un centre de service.</mat-error>
                 </mat-form-field>
             </div>
             </div>
          </div>
           <div>
-            <button mat-button matStepperPrevious>Retour</button>
-            <button mat-button matStepperNext>Suivant</button>
+            <button  class="button" matStepperPrevious>Retour</button>
+            <button  class="button" matStepperNext>Suivant</button>
           </div>
         </form>
       </mat-step> 
@@ -159,8 +157,110 @@
             </div>
         </div>
           <div>
-            <button mat-button matStepperPrevious>Retour</button>
-            <button mat-button matStepperNext>Suivant</button>
+            <button  class="button" matStepperPrevious>Retour</button>
+            <button  class="button" matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
+
+
+      <mat-step [stepControl]=" fifthFormGroup" optional>
+        <form [formGroup]=" fifthFormGroup">
+          <ng-template matStepLabel>Description de la réclamation</ng-template>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field>
+                  <mat-label>Nature de la réclamation</mat-label>
+                  <mat-select formControlName="typeRecCtrl">
+                      <mat-option *ngFor="let nature of typeReclamations" [value]="nature.code">
+                          {{nature.name}}
+                      </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="fifthFormGroup?.get('typeRecCtrl')?.hasError('required')">Veuillez sélectionner la nature de la réclamation.</mat-error>
+              </mat-form-field>
+          </div>
+          <div class="col-md-12">
+              <mat-form-field>
+                  <mat-label>Description détaillée de la réclamation et des problèmes rencontrés</mat-label>
+                  <textarea matInput formControlName="descriptionCtrl" rows="4" required></textarea>
+                  <mat-error *ngIf="fifthFormGroup?.get('descriptionCtrl')?.hasError('required')">Veuillez fournir une description détaillée de la réclamation.</mat-error>
+              </mat-form-field>
+          </div>
+        </div>
+          <div>
+            <button  class="button" matStepperPrevious>Retour</button>
+            <button  class="button" matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
+
+
+      <mat-step [stepControl]="sixthFormGroup" optional>
+        <form [formGroup]="sixthFormGroup">
+          <ng-template matStepLabel>Documents pertinents</ng-template>
+          <div class="row">
+            <div class="row">
+              <div class="col-md-6">
+                  <mat-form-field>
+                      <label>Copie du reçu de la visite technique</label>
+                      <input matInput type="file" formControlName="receiptCtrl" (change)="onReceiptChange($event)">
+                  </mat-form-field>
+                  <div *ngIf="selectedReceipt">
+                    <img [src]="selectedReceipt" style="    width: 200px;
+                    margin-bottom: 30px" alt="Receipt sélectionné">
+                </div>
+              </div>
+              <div class="col-md-6">
+                  <mat-form-field>
+                      <label>Photos des problèmes rencontrés (le cas échéant)</label>
+                      <input matInput type="file" formControlName="mediaCtrl" (change)="onPhotoChange($event)">
+                  </mat-form-field>
+                  <div *ngIf="selectedPhoto">
+                    <img [src]="selectedPhoto" style="    width: 200px;
+                    margin-bottom: 30px" alt="Receipt sélectionné">
+                </div>
+              </div>
+          </div>
+        </div>
+          <div>
+            <button  class="button" matStepperPrevious>Retour</button>
+            <button  class="button" matStepperNext>Suivant</button>
+          </div>
+        </form>
+      </mat-step>
+
+
+      <mat-step [stepControl]="seventhFormGroup" optional>
+        <form [formGroup]="seventhFormGroup">
+          <ng-template matStepLabel>Statut du véhicule et Demande de résolution</ng-template>
+          <div class="row">
+            <div class="col-md-12">
+              <mat-form-field>
+                <mat-label>Statut du véhicule</mat-label>
+                <mat-select formControlName="statutVehuculeCtrl">
+                    <mat-option *ngFor="let statut of statutVehicules" [value]="statut.code">
+                        {{statut.name}}
+                    </mat-option>
+                </mat-select>
+                  <mat-error *ngIf="seventhFormGroup?.get('statutVehuculeCtrl')?.hasError('required')">Veuillez sélectionner le statut du véhicule.</mat-error>
+              </mat-form-field>
+          </div>
+          <div class="col-md-12">
+              <mat-form-field>
+                  <mat-label>Comment souhaitez-vous que la réclamation soit résolue ?</mat-label>
+                  <mat-select formControlName="resolutionCtrl">
+                      <mat-option *ngFor="let resolution of resolutions" [value]="resolution.code">
+                          {{resolution.name}}
+                      </mat-option>
+                  </mat-select>
+                  <mat-error *ngIf="seventhFormGroup?.get('resolutionCtrl')?.hasError('required')">Veuillez fournir votre demande de résolution.</mat-error>
+              </mat-form-field>
+          </div>
+
+        </div>
+          <div>
+            <button  class="button" matStepperPrevious>Retour</button>
+            <button  class="button" matStepperNext>Suivant</button>
           </div>
         </form>
       </mat-step>
@@ -169,10 +269,10 @@
       <ng-template matStepLabel>Terminer</ng-template>
       <p>Vous avez terminé.</p>
       <div>
-        <form [formGroup]="fourthFormGroup" (ngSubmit)="submitRendezVous()">
-        <button mat-button matStepperPrevious>Retour</button>
-        <button mat-button (click)="stepper.reset()">Annuler</button>
-        <button mat-button type="submit">Soumettre</button>
+        <form [formGroup]="seventhFormGroup" (ngSubmit)="submitReclamationData()">
+        <button  class="button" matStepperPrevious>Retour</button>
+        <button class="Annuler" (click)="stepper.reset()">Annuler</button>
+        <button  class="Soumettre" type="submit" (click)="showSwwal()">Soumettre</button>
       </form>
       </div>
     </mat-step>

@@ -1,0 +1,46 @@
+
+
+.mat-mdc-form-field {
+    margin-top: 16px;
+  }
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: var(--mdc-filled-text-field-container-color);
+    
+}
+
+.mat-mdc-form-field {
+   
+     display: inline; 
+} 
+
+p {
+    font-family: Lato;
+  }
+  
+  .swal2-styled.swal2-cancel {
+    background-color: var(--bs-green);
+  }
+.button{
+  background-color: var(--mat-stepper-header-selected-state-icon-background-color);
+  color: white;
+  padding: 9px 25px 9px 25px;
+  border-radius: 4px;
+  font-size: bold;
+  margin-right: 20px;
+}
+.Annuler{
+  background-color: rgb(221, 87, 87);
+  color: white;
+  padding: 9px 25px 9px 25px;
+  border-radius: 4px;
+  font-size: bold;
+  margin-right: 20px;
+}
+.Soumettre{
+  background-color:var(--bs-green);
+  color: white;
+  padding: 9px 25px 9px 25px;
+  border-radius: 4px;
+  font-size: bold;
+  margin-right: 20px;
+}

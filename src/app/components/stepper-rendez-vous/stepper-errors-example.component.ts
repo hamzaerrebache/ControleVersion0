@@ -18,6 +18,7 @@ import {ActivatedRoute,Router} from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Center } from 'src/app/models/Center.model';
+
  enum TYPE {
   ERROR='error',
   SUCCESS='success',
@@ -85,6 +86,7 @@ export class StepperErrorsExampleComponent  implements OnInit {
   selectedCity !: DropdownOptions;
   dropdownOptions !:DropdownOptions[];
   isSelectDisabled: boolean = true; 
+  selectedCentreId: number | null = null;
 
   times: Times[] = [
     {value: '9:00 AM - 11:00 AM', viewValue: '9:00 AM - 11:00 AM'},
@@ -102,21 +104,25 @@ export class StepperErrorsExampleComponent  implements OnInit {
     {value: 6, viewValue: 'Lnti'},
     {value: 7, viewValue: 'T.NEAB'},
     {value: 8, viewValue: 'Cvtm'},
-
-
   ];
+
+  // Filtrage des centres en fonction de selectedCentreId
+filteredCentres: Centres[] = [];
+
 
 
 
   constructor(
     private _formBuilder: FormBuilder,
+    private route: ActivatedRoute,
     private rendezVousService: RendezVousService,
     public router: Router,
     public activatedRoute: ActivatedRoute,private http:HttpClient
   ) {}
 
   ngOnInit() {
-    this.http.get<Center[]>('https://api-pl73.vercel.app/Centres').subscribe(
+    
+    this.http.get<Center[]>('https://api-control-technique.vercel.app/Centres').subscribe(
       (data) => {
           this.centers=data
           console.log(this.centers)
@@ -158,7 +164,28 @@ export class StepperErrorsExampleComponent  implements OnInit {
       dateCtrl: ['', Validators.required], // Contrôle pour la date du rendez-vous
       timeCtrl: ['', Validators.required] // Contrôle pour l'heure du rendez-vous
     });
-    
+  const idCentre : string | null = localStorage.getItem('selectedCentreId');
+
+    if (idCentre !== null) {
+      this.selectedCentreId = parseInt(idCentre, 10);
+      // Vous pouvez utiliser this.selectedCentreId pour effectuer des actions si nécessaire
+      console.log("selectedCentreId ", this.selectedCentreId );
+    }else if (idCentre === null){
+      this.selectedCentreId=null
+      console.log("selectedCentreId ", this.selectedCentreId )
+    }
+
+    // Remplir filteredCentres en fonction de selectedCentreId
+    if (this.selectedCentreId !== null) {
+      const selectedCentre = this.centres.find(centre => centre.value === this.selectedCentreId);
+      if (selectedCentre) {
+        this.filteredCentres.push(selectedCentre);
+      }
+    } else {
+      this.filteredCentres = this.centres;
+    }
+
+
 
   }
 
@@ -248,26 +275,32 @@ export class StepperErrorsExampleComponent  implements OnInit {
         console.log('Rendez-vous créé avec succès !', response);
         // Réinitialiser le groupe de formulaires et le stepper
         this.stepperFormGroup.reset();
-        this.stepper.reset();
+        
       },
       error => {
         console.error('Une erreur est survenue lors de la création du rendez-vous :', error);
       },
       );
+      this.stepper.reset();
+      localStorage.removeItem('selectedCentreId');
   
-        Swal.fire({
-          title: 'Votre rendez-vous a été effectué.',
-          text: "Retour à la page d'accueil",
-          icon: TYPE.SUCCESS,
-          confirmButtonText: 'OK',
-         
-        }).then((result) => {
-          if (result.isConfirmed) {
-          
-            window.location.href = '/'; 
-         
-          }
-        });
+       
         this.isSelectDisabled= false; 
+        localStorage.removeItem('selectedCentreId');
+  }
+  showSwwal(){
+    Swal.fire({
+      title: 'Votre rendez-vous a été effectué.',
+      text: "Retour à la page d'accueil",
+      icon: TYPE.SUCCESS,
+      confirmButtonText: 'OK',
+     
+    }).then((result) => {
+      if (result.isConfirmed) {
+      
+        window.location.href = '/'; 
+     
+      }
+    });
   }
 }

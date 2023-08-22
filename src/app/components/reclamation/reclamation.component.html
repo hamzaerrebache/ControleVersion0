@@ -1,0 +1,37 @@
+<div style="padding-top: 140px">
+    <div
+      class="ltn__breadcrumb-area ltn__breadcrumb-area-2 ltn__breadcrumb-color-white bg-overlay-theme-black-90 bg-image"
+      data-bs-bg="assets/img/bg/Customer-service.png"
+      style="padding-top: 60px; padding-bottom: 40px"
+    >
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="ltn_breadcrumb-inner ltn_breadcrumb-inner-2 justify-content-between">
+                    <div class="section-title-area ltn__section-title-2">
+                        <h6 class="section-subtitle ltn__secondary-color">//  Bienvennue chez nous</h6>
+                        <h1 class="section-title white-color">formailaire pour Vos Réclamations</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5" style="margin-top: 16px;" >
+             <div class="slider-search" class="btn-wrapper animated">
+                 <form class="d-flex" (ngSubmit)="showComplaintDetails()" #trackingForm="ngForm">
+                     <input style="margin-right: 5px; border-radius: 0px;" class="form-control" id="trackingCode" name="trackingCode" [(ngModel)]="trackingCode"  type="search" placeholder="Entrer votre code de réclamation" aria-label="Search">
+                     <button  type="submit" class="bnt theme-bnt-1">Chercher</button>
+                   </form>
+             </div>
+             <div class="ltn__breadcrumb-list" style="float: right;">
+                 <ul>
+                     <li><a href="">Accueil</a></li>
+                     <li style="color: var(--bs-green);">Réclamation </li>
+                 </ul>
+             </div>
+            </div>
+        </div>
+      </div>
+    </div>
+   <!-- BREADCRUMB AREA END -->
+   <stepers-reclamation></stepers-reclamation>
+   <!-- APPOINTMENT AREA END -->
+   </div>

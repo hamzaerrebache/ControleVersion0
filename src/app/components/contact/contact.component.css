@@ -58,3 +58,13 @@ h1,h2,h3,h4,h5,h6 {
     margin: 0 0 20px;
     color: #1b1d21
 }
+
+/* @media (max-width: 767px)
+.ltn__breadcrumb-area-2{
+
+} */
+@media (max-width:767px){
+    .ltn__breadcrumb-area-2{
+        margin-top: 50px;
+    }
+}

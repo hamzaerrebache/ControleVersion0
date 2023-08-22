@@ -2,9 +2,11 @@
 <div class="ltn__google-map-locations-list-area pt-150 mb-70" >
     <div  class="container">
         <div class="row" >
-            <div class="col-lg-12">
-                <div class="ltn__state-location">
-                    <h2 class="ltn__state-location-title">Vos centres</h2>
+            <div class="col-md-12 mt-115">
+                <div >
+                    <h1 style="color: #707070;
+                    font-weight: 300;
+                    margin: 20px 0;"><span style="color: #322783;" >{{searchResults.length}}</span> Résultats trouvés</h1>
                 </div>
             </div>
             
@@ -30,12 +32,13 @@
                         <h5 class="ltn__location-single-info"><i class="fas fa-map-marked-alt"></i>{{center.adresse}}<br></h5>
                         <h4 class="ltn__location-single-info"><i class="fas fa-phone-volume"></i>{{center.tele}}</h4>
                         <div class="btn-wrapper" style="margin-left: 25%;">
-                            <a [href]="'/Center-details?id=' + center.id" class="link-link" ><i class="fa fa-memo-circle-check"></i> Details Center</a>
+                            <a [href]="'/Center-details?id=' + center.id" class="link-link"><i class="fa fa-memo-circle-check"></i> Details Center</a>
                         </div>
                     
                 </div>
             </div> 
             
-        </div>
+        
+      </div>
     </div>
 </div>

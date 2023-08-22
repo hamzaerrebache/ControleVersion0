@@ -34,4 +34,50 @@
    width: 100%;
    margin-top: 660px;
 }
- 
+.commont{
+  background-color: var(--ltn__secondary-color-3);
+  height: 61px;
+  width: auto;
+  font-family: var(--ltn__heading-font);
+  font-size: 19px;
+  font-weight: bold;
+  color: #fff;
+}
+.button1{
+  background-color: var(--bs-green);
+  color: var(--border-color-1);
+  padding: 8px 15px 8px 15px;
+}
+.button2{
+  background-color: var(--bs-green);
+  color: var(--border-color-1);
+  padding: 8px 16px 8px 17px;
+}
+.button1:hover{
+  background-color:white;
+  color: black;
+}
+.button2:hover{
+  background-color:white;
+  color: black;
+}
+
+.buttonUl{
+  list-style: none;
+  display: inline;
+}
+@media(max-width:767px){
+ .button1{
+  font-size: 8.5px;
+ }
+}
+@media(max-width:767px){
+  .button2{
+   font-size: 8.5px;
+  }
+ }
+ @media(max-width:767px){
+  .titre{
+   font-size: 14px;
+  }
+ }

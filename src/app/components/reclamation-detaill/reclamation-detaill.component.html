@@ -1,0 +1,67 @@
+<!-- BREADCRUMB AREA START -->
+<div style="padding-top: 180px">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div
+              class="ltn__breadcrumb-inner ltn__breadcrumb-inner-2 justify-content-between"
+            >
+              <div class="section-title-area ltn__section-title-2">
+                <h6 class="section-subtitle ltn__secondary-color">
+                  // Reclamationdetaill
+                </h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TEAM DETAILS AREA START -->
+    <div class="ltn__team-details-area mb-90">
+        <div class="container">
+            <div class="row" >
+                <div class="col-lg-4">
+                    <div class="ltn__team-details-member-info text-center mb-40">
+                        <div class="team-details-img">
+                            <img src="assets/img/team/4.jpg" alt="Team Member Image">
+                        </div>
+                        <h2 >{{this.reclamationDetails[0].first_name}} {{this.reclamationDetails[0].last_name}} </h2>
+                        <p>Statut de réclamation : <span [class]="statutColorClass"> {{ Statut }}</span></p>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="ltn__team-details-member-info-details">
+                        
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="ltn__team-details-member-about">
+                                    <h2 class="section-subtitle ltn__secondary-color">Les informations de votre voiture : </h2>
+                                    <ul>
+                                        <li><strong>Marque :</strong>{{this.reclamationDetails[0].make}}</li>
+                                        <li><strong>Modèle :</strong>{{this.reclamationDetails[0].model}}</li>
+                                        <li><strong>Matricule :</strong>{{this.reclamationDetails[0].matricule}}</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="ltn__team-details-member-about">
+                                    <h2 class="section-subtitle ltn__secondary-color" >Les informations personnelles  :</h2>
+                                    <ul>
+                                        <li><strong>Email:</strong> {{this.reclamationDetails[0].email}}</li>
+                                        <li><strong>Phone:</strong> {{this.reclamationDetails[0].tele}}</li>
+                                        <li><strong> Code de Suivi:</strong> {{this.reclamationDetails[0].trackingCode}}</li>
+                                     
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <h2 class="section-subtitle ltn__secondary-color"> Description de votre reclamation : </h2>
+                        <p>{{this.reclamationDetails[0].description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TEAM DETAILS AREA END -->

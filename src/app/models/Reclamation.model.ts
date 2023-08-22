@@ -1,0 +1,21 @@
+export interface Reclamation{
+    id:number,
+    first_name:string,
+    last_name:string,
+    email:string;
+    tele:string,
+    make:string,
+    model:string,
+    matricule:string,
+    centre_id:number,
+    date:Date,
+    time:string,
+    typeRec:string,
+    description:string,
+    copyReceipt:string,
+    media:string,
+    StatutVehucule:string,
+    resolution:string,
+    trackingCode:string,
+    statut:boolean
+}

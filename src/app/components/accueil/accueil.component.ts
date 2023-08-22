@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { Center } from 'src/app/models/Center.model';
 
@@ -7,7 +7,11 @@ import { Center } from 'src/app/models/Center.model';
   templateUrl: './accueil.component.html',
   styleUrls: ['./accueil.component.css']
 })
-export class AccueilComponent {
+export class AccueilComponent  implements OnInit{
+  
+  ngOnInit(): void {
+    localStorage.removeItem('selectedCentreId');
+  }
   searchResults !:Center[];
 
   // Method to receive the search results from the Navbar component

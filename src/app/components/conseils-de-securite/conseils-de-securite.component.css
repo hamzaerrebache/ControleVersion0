@@ -1,0 +1,34 @@
+@media (max-width:767px){
+    .ltn__breadcrumb-area-2{
+        margin-top: 50px;
+    }
+}
+
+h2{
+    color: var(--bs-green);
+    border : 2px green solid;
+    width: 100%;
+    text-align: center;
+  }
+  h6{
+    color:rgb(83, 81, 81);
+  }
+  
+  @media (max-width:767px){
+      .image1{
+          width: 370px;
+      }
+  }
+  
+  img {
+    width: 100%;
+  }
+  @media (min-width: 40em) {
+    /* Probably some parent element that limits the img width */
+    main {
+      width: 80%;
+    }
+  }
+  
+  
+  

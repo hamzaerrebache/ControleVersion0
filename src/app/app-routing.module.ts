@@ -9,7 +9,16 @@ import { ServiceComponent } from './components/service/service.component';
 import { TarifsComponent } from './components/tarifs/tarifs.component';
 import { DetailsComponent } from './components/details/details.component';
 import { ListCentresComponent } from './components/list-centres/list-centres.component';
-import { PlusDetailVisitetechComponent } from "./components/plus-detail-visitetech/plus-detail-visitetech.component"
+import { PlusDetailVisitetechComponent } from "./components/plus-detail-visitetech/plus-detail-visitetech.component";
+import { ReclamationComponent } from './components/reclamation/reclamation.component';
+import { ReclamationDetaillComponent } from './components/reclamation-detaill/reclamation-detaill.component';
+import { ConseilsDeSecuriteComponent } from './components/conseils-de-securite/conseils-de-securite.component';
+import { ControleTechniqueComponent } from './components/controle-technique/controle-technique.component';
+import { TitreDePropeieteComponent } from './components/titre-de-propeiete/titre-de-propeiete.component';
+import { PeriodeComponent } from './components/periode/periode.component';
+import { OuvrirCentreComponent } from './components/ouvrir-centre/ouvrir-centre.component';
+import { ListSliderCentreComponent } from './components/list-slider-centre/list-slider-centre.component';
+
 
 
 const routes: Routes = [
@@ -23,9 +32,14 @@ const routes: Routes = [
   { path:'List-centres',component:ListCentresComponent},
   { path:'plus-details',component:PlusDetailVisitetechComponent},
   { path:'Tarifs',component:TarifsComponent},
-  
-
- 
+  { path:'Reclamation',component:ReclamationComponent},
+  { path:'Reclamation/:id',component:ReclamationDetaillComponent,},
+  { path:'Conseils-de-securite',component:ConseilsDeSecuriteComponent },
+  { path:'ControleTechnique',component:ControleTechniqueComponent },
+  { path:'Titre-de-propriété',component:TitreDePropeieteComponent },
+  { path:'Périodicité',component:PeriodeComponent },
+  { path:'ouvrir-centre-visite-technique-maroc',component:OuvrirCentreComponent },
+  {path:'List-slider-center',component:ListSliderCentreComponent}
 ];
 
 @NgModule({

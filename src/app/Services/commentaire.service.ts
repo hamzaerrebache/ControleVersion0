@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CommentaireService {
-  private apiUrl = 'https://api-pl73.vercel.app/Commentaire';
+  private apiUrl = 'https://api-control-technique.vercel.app/Commentaire';
 
   constructor(private http: HttpClient) { }
 
-  getAllCommentaire(): Observable<Commentaire[]> {
-    return this.http.get<Commentaire[]>(this.apiUrl);
+  getAllCommentaireParCentre(centre_id:number): Observable<Commentaire[]> {
+    return this.http.get<Commentaire[]>(`${this.apiUrl}?centre_id=${centre_id}`);
   }
 
   createCommentaire(commentaire: Commentaire): Observable<any> {

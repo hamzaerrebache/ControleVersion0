@@ -4983,10 +4983,10 @@ ul.wp-block-latest-posts.is-grid.alignwide {
 /* ----------------------------------------
     Header 4
 ---------------------------------------- */
-.ltn__header-4 .ltn__header-middle-area,
+/* .ltn__header-4 .ltn__header-middle-area,
 .ltn__header-5 .ltn__header-middle-area {
   padding-top: 22px;
-  padding-bottom: 22px; }
+  padding-bottom: 22px; } */
 
 .ltn__header-4 .ltn__header-top-area {
   border-color: var(--border-color-3); }
@@ -6488,7 +6488,7 @@ ul.wp-block-latest-posts.is-grid.alignwide {
   .liton-slide-item-inner {
     height: inherit; }
   .slide-item-info-inner {
-    margin-bottom: 30px; }
+    margin-bottom: 80px; }
   .slide-title br {
     display: none; }
   .slide-title {

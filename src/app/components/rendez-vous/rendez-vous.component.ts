@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { StepperErrorsExampleComponent } from "../stepper-errors-example/stepper-errors-example.component";
+import { StepperErrorsExampleComponent } from "../stepper-rendez-vous/stepper-errors-example.component";
 
 
 @Component({

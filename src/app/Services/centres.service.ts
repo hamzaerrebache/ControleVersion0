@@ -8,10 +8,11 @@ import { Center } from '../models/Center.model';
 })
 export class CentresService {
 
-  private apiUrl = 'https://api-pl73.vercel.app/Centres';
+  private apiUrl = 'https://api-control-technique.vercel.app/Centres';
 
   constructor(private http: HttpClient) { }
-
+  Cities: string[] = ["casablanca","mohammedia"];
+  Reseaux:string[]=["DEKRA","SGS","REVITEX","SALAMA"];
     searchCenters(name: string, ville: string, nomReseau: string): Observable<Center[]> {
       
        const lowerCaseName = name ? name.toLowerCase() : '';
@@ -41,6 +42,22 @@ export class CentresService {
       return this.http.get<Center[]>(url);
     
   }
+  searchSliderCenters(data:string) :Observable<Center[]>{
+    let url = `${this.apiUrl}`;
+    const lowerCaseData = data ? data.toLowerCase() : '';
+    const upperCaseData = data ? data.toUpperCase() : '';
+    if(this.Cities.includes(lowerCaseData)){
+      url += `?ville=${lowerCaseData}`;
+    }
+     if(this.Reseaux.includes(upperCaseData)){
+      url += `?nomReseau=${upperCaseData}`;
+    }
+    if(!this.Cities.includes(lowerCaseData) && !this.Reseaux.includes(upperCaseData)){
+      url += `?name=${lowerCaseData}`;
+    }
+    return this.http.get<Center[]>(url);
+
+  }
 }
 
  

@@ -1,0 +1,45 @@
+@media (max-width:767px){
+    .ltn__breadcrumb-area-2{
+        margin-top: 50px;
+    }
+}
+p {
+    line-height: 1.5;
+  }
+  strong {
+    font-weight: bold;
+  }
+  ul, li {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+
+  @media (max-width:767px){
+    .image1{
+        width: 370px;
+    }
+}
+
+img {
+  width: 100%;
+}
+@media (min-width: 40em) {
+  /* Probably some parent element that limits the img width */
+  main {
+    width: 80%;
+  }
+}
+
+  ul {
+    color: #009933; /* Couleur verte pour les éléments de la liste */
+  }
+  li {
+    color: #898786; /* Couleur orange pour les éléments de liste */
+    line-height: 1.5;
+  }
+  h2{
+    color: var(--bs-green);
+  }
+  .content{
+   margin-top: -90px;
+  }
