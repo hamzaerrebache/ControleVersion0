@@ -33,8 +33,7 @@ import { TarifsComponent } from './components/tarifs/tarifs.component';
 import { SearshComponent } from './components/searsh/searsh.component';
 import { StepperErrorsExampleComponent } from './components/stepper-rendez-vous/stepper-errors-example.component';
 import { RendezVousComponent } from './components/rendez-vous/rendez-vous.component';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 import { StepersReclamationComponent } from './components/stepers-reclamation/stepers-reclamation.component';
 import { ReclamationComponent } from './components/reclamation/reclamation.component';
 import { ReclamationDetaillComponent } from './components/reclamation-detaill/reclamation-detaill.component';
@@ -113,20 +112,12 @@ const routes: Routes = [
     CommonModule,
     RatingModule,
     StepersReclamationComponent,
-    SweetAlert2Module.forRoot(),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: TranslateLoader,
-        deps: [HttpClient]
-      }
-    })
+    SweetAlert2Module.forRoot()
+   
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
 
-export function httpTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
+
